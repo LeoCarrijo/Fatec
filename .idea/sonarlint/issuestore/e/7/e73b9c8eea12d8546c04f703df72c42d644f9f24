@@ -1,0 +1,14 @@
+
+j
+java:S1192"ODefine a constant instead of duplicating this literal "
+Saldo Atual: " 3 times.(ÿîşáşÿÿÿÿ
+¦
+java:S1598"This file "Cliente.java" should be located in "lista1\cliente" directory, not in "C:\Users\lh837\Documentos\Sistemas\GitHub\Fatec\Poo\cliente".( ëßÆ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ëßÆ
+A
+java:S1659"+Declare "numeroAgencia" on a separate line.(íú‚£
+@	java:S106"+Replace this use of System.out by a logger.(²Ôü•
+E	java:S106"+Replace this use of System.out by a logger.(˜ùÊôûÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(­ÖÎ’şÿÿÿÿ
+G
+java:S1068"1Remove this unused "numeroAgencia" private field.(íú‚£
