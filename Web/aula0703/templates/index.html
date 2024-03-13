@@ -14,14 +14,18 @@
     </header>
     <main class="principal">
         <section class="campo">
-            <form action="" class="formulario">
+            <form action="/calculadorIMC" class="formulario" method="post">
                 <label for="peso">Peso: </label>
                 <input type="number" name="peso" id="peso"><br>
                 <label for="altura">Altura: </label>
                 <input type="number" name="altura" id="altura"><br>
-                <input type="button" value="Enviar" onclick="Calcular()">
+                <input type="submit" value="Enviar">
                 <input type="reset" value="Limpar">
             </form>
+            <div class="res">
+                <h3>Resultado:</h3>
+                <p>{{var_imc}}</p>
+            </div>
         </section>
     </main>
     <footer class="rodape">
