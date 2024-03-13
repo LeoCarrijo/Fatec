@@ -7,14 +7,14 @@ def root():
 
 @app.route('/sobre')
 def about():
-    return render_template('about.html')
+    return render_template('about.html', var_titulo="Título do Conteúdo About")
 
 @app.route('/contato')
 def contact():
-    return render_template('contato.html')
+    return render_template('contact.html')
 
 @app.route('/servicos')
 def services():
-    return render_template('servicos.html')
+    return render_template('services.html')
 
 app.run()
