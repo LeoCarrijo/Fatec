@@ -1,11 +1,0 @@
-
-­
-java:S1598"This file "Produto.java" should be located in "lista1\produto" directory, not in "C:\Users\lh837\Documentos\Sistemas\GitHub\Fatec\Poo\produto".(ê×Ì–8ı®–©à1
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ê×Ì–
-8
-java:S1659""Declare "qtde" on a separate line.(Óœ×¼
-@	java:S106"+Replace this use of System.out by a logger.(èå¶ˆ
-E	java:S106"+Replace this use of System.out by a logger.(í×“ùÿÿÿÿ
-?	java:S106"+Replace this use of System.out by a logger.(±»“
-@	java:S106#"+Replace this use of System.out by a logger.(òĞæ­
-@	java:S106("+Replace this use of System.out by a logger.(¡Ş†”
