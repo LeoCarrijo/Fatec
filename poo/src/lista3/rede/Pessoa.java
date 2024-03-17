@@ -1,8 +1,11 @@
 package lista3.rede;
 
+import java.util.ArrayList;
+
 public class Pessoa {
-    protected int id;
-    protected String nome, usuario;
+    private int id;
+    private String nome, usuario;
+    private ArrayList<Mensagem> mensagens = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -28,10 +31,34 @@ public class Pessoa {
         this.usuario = usuario;
     }
 
+    public ArrayList<Mensagem> getMensagens() {
+        return mensagens;
+    }
+
+    public void setMensagens(ArrayList<Mensagem> mensagens) {
+        this.mensagens = mensagens;
+    }
+
+    public void addMensagem(Mensagem msg){
+        this.mensagens.add(msg);
+    }
+
+    public void insertMensagem(Mensagem msg, int i){
+        this.mensagens.add(i, msg);
+    }
+
+    public void popMensagem(){
+        this.mensagens.remove(this.mensagens.size() - 1);
+    }
+
+    public void deleteMensagem(int i){
+        this.mensagens.remove(i);
+    }
+
     public Pessoa(int id, String nome, String usuario) {
-        this.id = id;
-        this.nome = nome;
-        this.usuario = usuario;
+        this.setId(id);
+        this.setNome(nome);
+        this.setUsuario(usuario);
     }
 
     @Override
@@ -41,5 +68,11 @@ public class Pessoa {
                 ", nome='" + nome + '\'' +
                 ", usuario='" + usuario + '\'' +
                 '}';
+    }
+
+    public void toStringMessages(){
+        for (Mensagem i:mensagens){
+            System.out.println(i);
+        }
     }
 }
