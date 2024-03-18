@@ -1,11 +1,8 @@
 package lista3.reservas;
 
-import java.util.ArrayList;
-
 public class Voo {
-    private int id;
-    private String origem, destino;
-    private ArrayList<Reserva> reservas = new ArrayList<>();
+    protected int id;
+    protected String origem, destino;
 
     public int getId() {
         return id;
@@ -29,14 +26,6 @@ public class Voo {
 
     public void setDestino(String destino) {
         this.destino = destino;
-    }
-
-    public void addReserva(Reserva reserva){
-        this.reservas.add(reserva);
-    }
-
-    public void deleteReserva(int i){
-        this.reservas.remove(i);
     }
 
     public Voo(int id, String origem, String destino) {
