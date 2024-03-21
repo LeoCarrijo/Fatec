@@ -12,4 +12,17 @@ def calculadorIMC():
     imc = peso / (altura * altura)
     return render_template('index.html', var_imc=imc)
 
+@app.route('/calcular_imc_get', methods=['GET'])
+def calcularIMC_get():
+    args = request.args
+    altura = float(args.get('altura'))
+    peso = float(args.get('peso'))
+    imc = peso / altura**2
+    if(imc < 18.5):
+        classificacao = 'MAGREZA'
+    if(imc >= 18.5 and imc <= 24.9):
+        classificacao = 'NORMAL'
+    if(imc >= 25 and imc <= 29.9):
+        classificacao = 'GORDO'
+
 app.run()

@@ -26,6 +26,14 @@
                 <h3>Resultado:</h3>
                 <p>{{var_imc}}</p>
             </div>
+            <form action="calculadorIMC" class="formulario" method="get">
+                <label for="peso">Peso: </label>
+                <input type="number" name="peso" id="peso"><br>
+                <label for="altura">Altura: </label>
+                <input type="number" name="altura" id="altura"><br>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </form>
         </section>
     </main>
     <footer class="rodape">
