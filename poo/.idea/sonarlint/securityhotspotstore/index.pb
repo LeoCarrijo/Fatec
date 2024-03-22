@@ -33,5 +33,3 @@ J
 src/lista3/rede/Forum.java,c\1\c1632fb7c12e91b00a4428d94f23fc2eb0414246
 M
 src/lista3/rede/Mensagem.java,d\9\d9f3a395d30761a75cc517d19ad51f83e31dd88e
-D
-src/lista3/Main.java,b\0\b0a3e1cd7494d71afbd0881de8d2651246e9c9c6
