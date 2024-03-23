@@ -33,3 +33,15 @@ J
 src/lista3/rede/Forum.java,c\1\c1632fb7c12e91b00a4428d94f23fc2eb0414246
 M
 src/lista3/rede/Mensagem.java,d\9\d9f3a395d30761a75cc517d19ad51f83e31dd88e
+S
+#src/lista3/correcao/rede/Forum.java,b\5\b52751ed427776acda696b69903497315623a16a
+U
+%src/lista3/correcao/rede/Message.java,0\0\00ca9dce5cd8a779de0120ab02c85db87ae357bd
+O
+src/lista5/ex2/Aniversario.java,f\e\fe2bbbb4931b87fd748949da02b3719a78b898d0
+I
+src/lista5/ex2/Natal.java,7\9\79f553fb1398c645186228bf30ad55161e3bab35
+S
+#src/lista5/ex2/DiaDosNamorados.java,b\3\b31f333646811183eda858e619d1206e6677a034
+M
+src/lista5/ex2/CartaoWeb.java,a\e\aec8f10f2affa3ad54ce114b4a4279216d906040

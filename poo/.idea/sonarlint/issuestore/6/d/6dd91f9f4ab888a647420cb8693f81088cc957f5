@@ -1,4 +1,9 @@
 
+
+java:S1319""pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éòÚÿ8Ñ¤™Âæ1
+†
+java:S1319&"iThe type of "mensagens" should be an interface such as "List" rather than the implementation "ArrayList".(¨ñ¦å8Ù¤™Âæ1
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(›—äşÿÿÿÿ
-B
-java:S1659"%Declare "usuario" on a separate line.(Œèê8á¼Áä1
+G
+java:S1659"%Declare "usuario" on a separate line.(’Õæºúÿÿÿÿ8ê¤™Âæ1
+L	java:S106K"+Replace this use of System.out by a logger.(´‹¹öşÿÿÿÿ8ú¤™Âæ1
