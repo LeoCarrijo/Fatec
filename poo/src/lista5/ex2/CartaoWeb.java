@@ -11,5 +11,12 @@ public abstract class CartaoWeb {
         this.destinatario = destinatario;
     }
 
+    @Override
+    public String toString() {
+        return "CartaoWeb{" +
+                "destinatario='" + destinatario + '\'' +
+                '}';
+    }
+
     public abstract void showMessage();
 }
