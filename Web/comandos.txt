@@ -1,0 +1,21 @@
+Criar Ambiente Virtual Windows: py -m venv -nomedoambiente-
+Tirar regras de políticas:
+	Get-ExecutionPolicy
+	Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+Ativar ambiente: Executar o arquivo "Scripts\activate"
+Instalar Flask: pip install flask
+
+
+1 - Dentro da pasta onde vai criar o ambiente virtual, executar "python -m venv -nomedoambiente-"
+2 - Entrar na pasta "-nomedoambiente-" que foi criado
+3 - Activar o ambiente virtual executando o arquivo em "Scripts/activate"
+4 - Caso der algum problema na ativação do ambiente:
+	4.1 - Get-ExecutionPolicy
+	4.2 - Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+	4.3 - Executar novamente o "Scripts/activate"
+5 - Instalar o "Flask" com o comando "pip install flask"
+6 - Criar a página principal de python
+7 - Criar pasta "templates" na raiz do ambiente virtual
+8 - Criar arquivo HTMl nessa pasta "template"
+9 - Criar página HTML nesse arquivo
+10 - Ir na página principal de Python e importar o "render_template"
