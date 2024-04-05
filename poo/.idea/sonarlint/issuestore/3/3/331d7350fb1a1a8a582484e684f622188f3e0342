@@ -1,0 +1,28 @@
+
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(»¬ôã
+a
+java:S1192-"FDefine a constant instead of duplicating this literal "Papel" 4 times.(À­ôÄøÿÿÿÿ
+a
+java:S1192%"FDefine a constant instead of duplicating this literal "Pedra" 4 times.(ğ¯üŞıÿÿÿÿ
+c
+java:S1192%"HDefine a constant instead of duplicating this literal "Tesoura" 4 times.(ğ¯üŞıÿÿÿÿ
+ª
+java:S1598"”This file "Jogo.java" should be located in "lista5\ex4" directory, not in "C:\Users\lh837\Documents\RepositoriosClones\Fatec\poo\src\lista5\ex4-v2".(åìøY
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(åìøY
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™œ¸¶ûÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(ø„¥Ï
+E	java:S106"+Replace this use of System.out by a logger.(äûƒÌøÿÿÿÿ
+E	java:S106"+Replace this use of System.out by a logger.(¨İ–øÿÿÿÿ
+c	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™ïŠÕ
+\
+java:S1126%"AReplace this if-then-else statement by a single return statement.(ğ¯üŞıÿÿÿÿ
+h	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€éµ­üÿÿÿÿ
+\
+java:S1126-"AReplace this if-then-else statement by a single return statement.(À­ôÄøÿÿÿÿ
+c	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼æÍå
+W
+java:S11265"AReplace this if-then-else statement by a single return statement.(¹ÌÜˆ
+c	java:S100<"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦–£
+\
+java:S1126="AReplace this if-then-else statement by a single return statement.(ÑÎ©Ãúÿÿÿÿ
