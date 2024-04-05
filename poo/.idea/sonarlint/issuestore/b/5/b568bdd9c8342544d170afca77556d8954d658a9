@@ -1,0 +1,13 @@
+
+œ
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŞÉ’˜8¼õƒë1J$ca67454d-021e-4ec5-8974-08f77c88ce80
+
+java:S1192"GDefine a constant instead of duplicating this literal "Carlos" 3 times.(Ğäòùÿÿÿÿ8ÚõŸƒë1J$f5f06576-c340-42f8-a36c-55359980838e
+–
+java:S1104"SMake cartoes a static final constant or non-public and provide accessors if needed.(ŞÉ’˜8¿õƒë1J$1635dd15-088d-4c9a-8228-360c19ccd99f
+p
+java:S1444"-Make this "public static cartoes" field final(ŞÉ’˜8Àõƒë1J$51cb7645-e639-4211-97f9-524826a7cafb
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ãò×Ÿ8Áõƒë1J$b68efee5-d972-4219-a285-fa320ff7a2e4
+	java:S100	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ÁÖ¾8Íõƒë1J$a7061e98-53f3-4d86-a326-92fb0bf780a3
+r	java:S106
+"+Replace this use of System.out by a logger.(ŸÛ®ûÿÿÿÿ8Ïõƒë1J$33c0c82a-4363-4c5c-9388-5bd30d4a26fa

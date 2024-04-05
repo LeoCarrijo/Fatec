@@ -9,7 +9,7 @@ public class Aniversario extends CartaoWeb {
     }
 
     public Aniversario(String destinatario) {
-        this.setDestinatario(destinatario);
+        super(destinatario);
     }
 
     @Override

@@ -10,7 +10,7 @@ public class DiaDosNamorados extends CartaoWeb {
     }
 
     public DiaDosNamorados(String destinatario) {
-        this.setDestinatario(destinatario);
+        super(destinatario);
     }
 
     @Override

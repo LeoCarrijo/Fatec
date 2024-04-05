@@ -9,7 +9,7 @@ public class Natal extends CartaoWeb {
     }
 
     public Natal(String destinatario) {
-        this.setDestinatario(destinatario);
+        super(destinatario);
     }
 
     @Override

@@ -12,13 +12,9 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        DiaDosNamorados cartaoNamo = new DiaDosNamorados("Carlos");
-        Natal cartaoNatal = new Natal("Carlos");
-        Aniversario cartaoAniver = new Aniversario("Carlos");
-
-        cartoes.add(cartaoNamo);
-        cartoes.add(cartaoNatal);
-        cartoes.add(cartaoAniver);
+        cartoes.add(new DiaDosNamorados("Carlos"));
+        cartoes.add(new Natal("Carlos"));
+        cartoes.add(new Aniversario("Carlos"));
 
         for(CartaoWeb obj:cartoes){ // Neste looping também ocorre o polimorfismo
             ExibirDados(obj);
