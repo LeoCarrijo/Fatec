@@ -57,18 +57,6 @@ L
 src/lista5/ex4_v2/Pedra.java,3\b\3bbffecbebc7aaccc09346bad36b443836ec8189
 K
 src/lista5/ex4_v2/Jogo.java,a\d\ad906d31b7afc2895199e19b3fd48317d4140be1
-O
-src/lista6/JogadorBasquete.java,e\a\ea9d97a329a84909a87b6d823350f3744a487c90
-D
-src/lista6/Main.java,f\4\f4aa5265b0c2ea73883381c04801af61eb62eff0
-L
-src/lista6/JogadorVolei.java,e\4\e4c71d0e6af46c3e82f4e344f56ff66ab4df6dac
-N
-src/lista6/JogadorFutebol.java,b\9\b9b1ea55b272ac8583740c224a54f8a05e8a0616
-K
-src/lista6/AtletaVolei.java,2\a\2ab4623ad6ca7e75df4b66f8cf3e4d504650c07f
-S
-#src/lista6/AtletaVoleiBasquete.java,a\9\a9fe164976da4dd1a687584b79dfdba81a64ea56
 K
 src/lista6/ex1/Cidadao.java,8\a\8a3dffa190d4341a3815a7394c7369f74ab92252
 P
@@ -87,3 +75,37 @@ O
 src/lista6/ex1/TestaCidade.java,d\9\d9511486dae6bacdb309e2a45ce778e4bf4fc832
 K
 src/lista6/TestaPessoa.java,2\6\26b6187ea10e6bd11b9ceb962308cb07ae61d853
+I
+src/testes/tst1/Main.java,b\a\bacabc458124e9c0dc073b64f4e9f9cda1b22deb
+L
+src/testes/tst1/Pokemon.java,2\d\2dd929fbcaa45835c955ec705dbe03345c445f14
+O
+src/testes/tst1/tipos/Fogo.java,e\6\e6853ff985de3b7d2611a3e746c32e7ec27bb655
+O
+src/testes/tst1/tipos/Agua.java,7\5\75faeb577bf639e7afebad2c6fd8a1e03cef622a
+P
+ src/testes/tst1/tipos/Grama.java,5\e\5ee4f08652e4918306f5369df5746f4e994d1f39
+K
+src/testes/tst1/Ataque.java,d\c\dc359c7033d77456b7a38d640aa494fe791953c5
+O
+src/testes/tst1/tipos/Tipo.java,8\6\86f4984cd646b72bc28ec113dc724729c3206544
+N
+src/testes/pokemon/Ataque.java,b\1\b171ed2cb47223c5f08b6b8db50e9333e62d83da
+O
+src/testes/pokemon/Pokemon.java,6\8\68b023b2bd72aa61c5b0e0d84c58e0861fd8ff9c
+X
+(src/testes/pokemon/pokemons/Pokemon.java,1\8\1875970082fb2c241c2057ea48d8f94d709ae355
+V
+&src/testes/pokemon/ataques/Ataque.java,b\9\b9365744655aa8708be7e3dbe848ba35773c9157
+R
+"src/testes/pokemon/tipos/Agua.java,2\0\20ed4cd9f5e3337e473b14a0cdd9cdb3f307cae0
+R
+"src/testes/pokemon/tipos/Fogo.java,8\d\8d3d9ca5d218efd2e420fe7ca1a7c71eb30c08ee
+S
+#src/testes/pokemon/tipos/Grama.java,f\3\f3013475befa42655077841ea2c3c03e94731980
+R
+"src/testes/pokemon/tipos/Tipo.java,6\7\670ebcf045e4bbfa33634c80c326bbb01e2fdff4
+Y
+)src/testes/pokemon/ataques/FireBlast.java,f\0\f082cc9f3aa32e6e03dd37e34a35dad31d1f6ec3
+Y
+)src/testes/pokemon/ataques/FirePunch.java,8\5\85e22ac35aa42a36c5e1a70b9f30f99561732fc9
