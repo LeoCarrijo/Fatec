@@ -1,4 +1,4 @@
-package lista6;
+package lista6.aula;
 
 public class AtletaVoleiBasquete implements JogadorVolei, JogadorBasquete{
     @Override

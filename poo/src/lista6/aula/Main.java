@@ -1,4 +1,4 @@
-package lista6;
+package lista6.aula;
 
 public class Main {
     public static void main(String[] args) {

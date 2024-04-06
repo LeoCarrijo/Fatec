@@ -1,4 +1,4 @@
-package lista6;
+package lista6.aula;
 
 public interface JogadorFutebol {
     public void baterPenalti();
