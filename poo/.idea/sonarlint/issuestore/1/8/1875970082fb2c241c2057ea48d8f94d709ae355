@@ -1,3 +1,13 @@
 
-~
-java:S2094"BRemove this empty class, write its code or make it an "interface".(ã³âĞJ$228d6590-5dc7-4820-a2d8-1127456357f7
+œ
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(š³ÒÚ8õ˜ìì1J$404db827-64d0-41d8-aa74-2d180f14f194
+k
+java:S1659"#Declare "tipo2" on a separate line.(œú´…øÿÿÿÿ8ı˜ìì1J$255ef1ff-0637-439f-a804-4f1f574fcb83
+|
+java:S5993N"9Change the visibility of this constructor to "protected".(ñŸà÷8™ìì1J$5a46f5ff-6467-4b89-aca1-fbfb7f98c33c
+r	java:S106."+Replace this use of System.out by a logger.(‘Ô¥»ıÿÿÿÿ8”™ìì1J$0afa3225-84ed-4f7e-aa89-c9246b2f597f
+r	java:S1067"+Replace this use of System.out by a logger.(ù½‚ÿûÿÿÿÿ8–™ìì1J$f0001ba9-9e45-42c7-82b9-bbf2d3290421
+l	java:S106;"+Replace this use of System.out by a logger.(’ˆÈ8—™ìì1J$cc9b9a18-e32b-466e-8963-07e7719d9002
+m	java:S106@"+Replace this use of System.out by a logger.(È‚ÒÍ8—™ìì1J$66ff82e4-c7d2-4d07-b1de-a48d1ed78b18
+r	java:S106D"+Replace this use of System.out by a logger.(õ±éÔüÿÿÿÿ8˜™ìì1J$10014b61-5d7c-4d3a-a325-03c3d01e1d7b
+m	java:S106J"+Replace this use of System.out by a logger.(ÈÖ±8˜™ìì1J$ec2fccaf-8b90-4088-8731-3742ce967d8a

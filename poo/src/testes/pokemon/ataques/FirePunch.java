@@ -1,9 +1,9 @@
 package testes.pokemon.ataques;
 
-import testes.pokemon.tipos.Tipo;
+import testes.pokemon.tipos.Fogo;
 
 public class FirePunch extends Ataque{
-    public FirePunch(String nome, float dano, float precisao, byte pp, char categoria, Tipo tipo) {
-        super(nome, dano, precisao, pp, categoria, tipo);
+    public FirePunch() {
+        super("Fire Punch", 75f, 100f, (byte) 15, 'f', new Fogo());
     }
 }

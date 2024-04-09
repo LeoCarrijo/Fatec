@@ -19,6 +19,6 @@ public class Cidade {
     }
 
     public void alimenta(Animal a){
-        a.come();
+        a.comer();
     }
 }

@@ -75,24 +75,6 @@ O
 src/lista6/ex1/TestaCidade.java,d\9\d9511486dae6bacdb309e2a45ce778e4bf4fc832
 K
 src/lista6/TestaPessoa.java,2\6\26b6187ea10e6bd11b9ceb962308cb07ae61d853
-I
-src/testes/tst1/Main.java,b\a\bacabc458124e9c0dc073b64f4e9f9cda1b22deb
-L
-src/testes/tst1/Pokemon.java,2\d\2dd929fbcaa45835c955ec705dbe03345c445f14
-O
-src/testes/tst1/tipos/Fogo.java,e\6\e6853ff985de3b7d2611a3e746c32e7ec27bb655
-O
-src/testes/tst1/tipos/Agua.java,7\5\75faeb577bf639e7afebad2c6fd8a1e03cef622a
-P
- src/testes/tst1/tipos/Grama.java,5\e\5ee4f08652e4918306f5369df5746f4e994d1f39
-K
-src/testes/tst1/Ataque.java,d\c\dc359c7033d77456b7a38d640aa494fe791953c5
-O
-src/testes/tst1/tipos/Tipo.java,8\6\86f4984cd646b72bc28ec113dc724729c3206544
-N
-src/testes/pokemon/Ataque.java,b\1\b171ed2cb47223c5f08b6b8db50e9333e62d83da
-O
-src/testes/pokemon/Pokemon.java,6\8\68b023b2bd72aa61c5b0e0d84c58e0861fd8ff9c
 X
 (src/testes/pokemon/pokemons/Pokemon.java,1\8\1875970082fb2c241c2057ea48d8f94d709ae355
 V
@@ -109,3 +91,11 @@ Y
 )src/testes/pokemon/ataques/FireBlast.java,f\0\f082cc9f3aa32e6e03dd37e34a35dad31d1f6ec3
 Y
 )src/testes/pokemon/ataques/FirePunch.java,8\5\85e22ac35aa42a36c5e1a70b9f30f99561732fc9
+L
+src/testes/pokemon/Main.java,4\e\4e56ca47db0992facb93658d48e0527ceac7a703
+X
+(src/testes/pokemon/pokemons/Pikachu.java,3\0\300eceb6e6c74809a4e3739bc639d9ac9b3885c9
+[
++src/testes/pokemon/pokemons/Charmander.java,5\5\55cd1b1cc3a92ca7220b8e62e2a5173e39189cc1
+T
+$src/testes/pokemon/tipos/Normal.java,d\6\d68d82e8432de148f8c8dd2326390d7c2d5da34e

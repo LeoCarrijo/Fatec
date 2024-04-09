@@ -1,9 +1,9 @@
 
 z
-java:S25898"7Remove this expression which always evaluates to "true"(í¨Õ”8¥¤œë1J$f6393189-326c-45fb-8839-7bfa07d753ad
+java:S25898"7Remove this expression which always evaluates to "true"(í¨Õ”8¥¤œë1J$f1a00047-080b-4406-90df-1f3cca2209d5
 n
-java:S1659"&Declare "precisao" on a separate line.(Æ½¹óÿÿÿÿÿ8‘¥¤œë1J$51fadb98-536e-44e2-b18f-c82d70ffd63e
+java:S1659"&Declare "precisao" on a separate line.(Æ½¹óÿÿÿÿÿ8‘¥¤œë1J$c313deb0-b579-40eb-8a2d-940315bb35d3
 |
-java:S5993G"9Change the visibility of this constructor to "protected".(Èºú¶8’¥¤œë1J$705e3a6d-9e0b-4666-8f08-7b5cb01fa495
-r	java:S106#"+Replace this use of System.out by a logger.(°Æ¬ûşÿÿÿÿ8—¥¤œë1J$1129eb98-9736-475b-8ee0-92b04e881fcb
-r	java:S106<"+Replace this use of System.out by a logger.(™Óß­ıÿÿÿÿ8›¥¤œë1J$6c18ac52-0e94-41c0-a2d6-a88e485fcd0e
+java:S5993G"9Change the visibility of this constructor to "protected".(Èºú¶8’¥¤œë1J$c88ebc6a-b688-42c7-b303-1db10406aeb9
+r	java:S106#"+Replace this use of System.out by a logger.(°Æ¬ûşÿÿÿÿ8—¥¤œë1J$5910b700-15e5-4770-beb9-22c092eb49df
+r	java:S106<"+Replace this use of System.out by a logger.(™Óß­ıÿÿÿÿ8›¥¤œë1J$cc95d470-4fb0-429c-b7d3-8675b62de627
