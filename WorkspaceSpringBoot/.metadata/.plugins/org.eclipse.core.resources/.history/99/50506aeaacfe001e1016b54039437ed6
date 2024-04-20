@@ -1,0 +1,5 @@
+package fatecfranca.edu.saudacao.controller;
+
+public class MensagemController {
+
+}

@@ -93,8 +93,6 @@ Y
 )src/testes/pokemon/ataques/FirePunch.java,8\5\85e22ac35aa42a36c5e1a70b9f30f99561732fc9
 L
 src/testes/pokemon/Main.java,4\e\4e56ca47db0992facb93658d48e0527ceac7a703
-X
-(src/testes/pokemon/pokemons/Pikachu.java,3\0\300eceb6e6c74809a4e3739bc639d9ac9b3885c9
 [
 +src/testes/pokemon/pokemons/Charmander.java,5\5\55cd1b1cc3a92ca7220b8e62e2a5173e39189cc1
 T
