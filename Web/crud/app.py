@@ -15,11 +15,11 @@ def inserir_usuario():
     senha = request.form['senha']
     db = mysql.connector.connect(host='201.23.3.86',
                                  port=5000,
-                                 user='user_aluno',
+                                 user='usr_aluno',
                                  password='E$tud@_m@1$',
                                  database='aula_fatec')
     mycursor = db.cursor()
-    query = "INSERT INTO leocarrijotbusuario (nome, cpf, email, senha) VALUES (%s, %s, %s, %s)"
+    query = "INSERT INTO leocarrijo_tbusuario (nome, cpf, email, senha) VALUES (%s, %s, %s, %s)"
     values = (nome, cpf, email, senha)
     mycursor.execute(query,values)
     db.commit()
@@ -29,11 +29,24 @@ def inserir_usuario():
 def lista_user():
     db = mysql.connector.connect(host='201.23.3.86',
                                  port=5000,
-                                 user='user_aluno',
+                                 user='usr_aluno',
                                  password='E$tud@_m@1$',
                                  database='aula_fatec')
     mycursor = db.cursor()
     query = 'select nome, cpf, email from leocarrijo_tbusuario'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template('cadusuario.html', usuarios=resultado)
+
+@app.route('/alterar_usuario/<user>')
+def alterar_usuario(user):
+    db = mysql.connector.connect(host='201.23.3.86',
+                                 port=5000,
+                                 user='usr_aluno',
+                                 password='E$tud@_m@1$',
+                                 database='aula_fatec')
+    mycursor = db.cursor()
+    query = 'select nome, cpf, email from leocarrijo_tbusuario where id = ' + user
     mycursor.execute(query)
     resultado = mycursor.fetchall()
     return render_template('cadusuario.html', usuarios=resultado)

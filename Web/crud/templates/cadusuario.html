@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BT">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,16 +11,24 @@
             <th>nome</th>
             <th>cpf</th>
             <th>email</th>
+            <th>excluir</th>
+            <th>alterar</th>
         </tr>
         {% for usuario in usuarios %}
         <tr>
             <td>{{usuario[0]}}</td>
             <td>{{usuario[1]}}</td>
             <td>{% if usuario[2] is not none %}
-                {{usuario[1]}}
+                {{usuario[2]}}
             {% else %}
                 Vazio
             {% endif %}</td>
+            <td>
+
+            </td>
+            <td>
+                <a href="{{ url_for('alterar_usuario', user=user[3]) }}">alterar</a>
+            </td>
         </tr>
         {% endfor %}
     </table>
