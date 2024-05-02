@@ -1,0 +1,22 @@
+{% extends index.html %}
+
+{% block formulario %}
+<form action="get" class="formulario">
+    <div class="caixa">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome" placeholder="Seu Nome" required>
+    </div>
+    <div class="caixa">
+        <label for="cpf">CPF: </label>
+        <input type="text" name="cpf" id="cpf">
+    </div>
+    <div class="caixa">
+        <label for="email">E-mail: </label>
+        <input type="email" name="email" id="email" pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/" required>
+    </div>
+    <div class="caixa">
+        <label for="senha">Senha: </label>
+        <input type="password" name="senha" id="senha">
+    </div>
+</form>
+{% endblock %}

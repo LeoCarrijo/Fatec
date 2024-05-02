@@ -47,4 +47,23 @@ def alterar_usuario(user):
     resultado = mycursor.fetchall()
     return render_template('cadusuario.html', usuarios= resultado)
 
+@app.route('/update_usuario',methods=['POST'])
+def update_usuario():
+    id = request.form['txt_id']
+    nome = request.form['txt_nome']
+    cpf = request.form['txt_cpf']
+    email = request.form['txt_email']
+    senha = request.form['txt_senha']
+    db = mysql.connector.connect(host='201.23.3.86',
+                                port=5000,
+                                user='usr_aluno',
+                                password='E$tud@_m@1$',
+                                database='aula_fatec')
+    mycursor = db.cursor()
+    query = "UPDATE leocarrijo_tbusuario set nome = '" + nome + "', cpf = '"
+    + cpf + "', email = '" + email + "', senha = '" + senha + "' where id = " + id
+    mycursor.execute(query)
+    db.commit()
+    return redirect('/usercad')
+
 app.run()
