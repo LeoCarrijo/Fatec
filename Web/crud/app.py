@@ -13,15 +13,19 @@ def inserir_usuario():
     cpf = request.form['txt_cpf']
     email = request.form['txt_email']
     senha = request.form['txt_senha']
-    db = mysql.connector.connect(host='201.23.3.86', port=5000, user='usr_aluno',password='E$tud@_m@1$',database='aula_fatec')
+    db = mysql.connector.connect(host='201.23.3.86',
+                                port=5000,
+                                user='usr_aluno',
+                                password='E$tud@_m@1$',
+                                database='aula_fatec')
     mycursor = db.cursor()
-    query = "INSERT INTO leonardo_tbusuario (nome, cpf, email, senha) VALUES (%s,%s,%s,%s)"
+    query = "INSERT INTO leocarrijo_tbusuario (nome, cpf, email, senha) VALUES (%s,%s,%s,%s)"
     values = (nome, cpf, email, senha)
     mycursor.execute(query,values)
     db.commit()
-    return 'gravou'
+    return redirect('/caduser')
 
-@app.route('/usercad')
+@app.route('/caduser')
 def lista_user():
     db = mysql.connector.connect(host='201.23.3.86',
                                 port=5000,
@@ -29,10 +33,10 @@ def lista_user():
                                 password='E$tud@_m@1$',
                                 database='aula_fatec')
     mycursor = db.cursor()
-    query = 'select nome, cpf, email from leocarrijo_tbusuario'
+    query = 'SELECT nome, cpf, email FROM leocarrijo_tbusuario'
     mycursor.execute(query)
     resultado = mycursor.fetchall()
-    return render_template('cadusuario.html', opcao='listar', usuarios= resultado)
+    return render_template('cadusuario.html', opcao='listar', usuarios=resultado)
 
 @app.route('/alterar_usuario/<user>') #Carregar a página de cadastro
 def alterar_usuario(user):
@@ -42,7 +46,7 @@ def alterar_usuario(user):
                                 password='E$tud@_m@1$',
                                 database='aula_fatec')
     mycursor = db.cursor()
-    query = 'select nome, cpf, email, id from leocarrijo_tbusuario where id = ' + user
+    query = 'SELECT nome, cpf, email, id FROM leocarrijo_tbusuario WHERE id = ' + user
     mycursor.execute(query)
     resultado = mycursor.fetchall()
     return render_template('cadusuario.html', usuarios= resultado)
@@ -60,10 +64,10 @@ def update_usuario():
                                 password='E$tud@_m@1$',
                                 database='aula_fatec')
     mycursor = db.cursor()
-    query = "UPDATE leocarrijo_tbusuario set nome = '" + nome + "', cpf = '"
-    + cpf + "', email = '" + email + "', senha = '" + senha + "' where id = " + id
+    query = "UPDATE leocarrijo_tbusuario SET nome = '" + nome + "', cpf = '"
+    + cpf + "', email = '" + email + "', senha = '" + senha + "' WHERE id = " + id
     mycursor.execute(query)
     db.commit()
-    return redirect('/usercad')
+    return redirect('/caduser')
 
 app.run()
