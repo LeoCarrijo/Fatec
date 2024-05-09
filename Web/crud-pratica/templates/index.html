@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Teste</title>
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="static/style_index.css">
+    <link rel="stylesheet" href="static/reset.css">
+    <link rel="stylesheet" href="static/base.css">
 </head> 
 <body>
-    {% block formulario %}{% endblock %}
+    <header class="cabecalho">
+        <h1 class="cabecalho__titulo">Selecione a Página Desejada:</h1>
+    </header>
+    <nav class="nav">
+        <ul class="nav__lista">
+            <li><a href="/cadastrar_usuario">Cadastro de Usuários</a></li>
+            <li><a href="/cadastrar_clientes">Cadastro de Clientes</a></li>
+        </ul>
+    </nav>
+    <main class="principal">
+
+    </main>
 </body>
-
-    <script>
-        function formatarCPF() {
-            var cpf = document.getElementById('cpf');
-            var valor = cpf.value;
-            
-            valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
-            valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca um ponto entre o terceiro e o quarto dígitos
-            valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca um ponto entre o terceiro e o quarto dígitos de novo (para o segundo bloco de números)
-            valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Coloca um hífen entre o terceiro e o quarto dígitos
-            
-            cpf.value = valor;
-        }
-    </script>
-
 </html>

@@ -7,20 +7,13 @@
 </head>
 <body>
     <header class="cabecalho">
-        <h1>Cadastro de Usuário</h1>
+        <h1>Página Inicial</h1>
     </header>
     <main class="principal">
-        <form action="/cadastrar_usuario" class="formulario" method="post">
-            <label for="nome">Nome: </label>
-            <input type="text" name="nome" id="nome" placeholder="Seu Nome" required><br>
-            <label for="cpf">CPF: </label>
-            <input type="text" name="cpf" id="cpf" placeholder="123.456.789.00" required><br>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="seuemail@dominio.com.br" required><br>
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" id="senha" minlength="8" placeholder="*****" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}" required><br>
-            <input type="submit" value="Salvar">
-        </form>
+        <ul class="lista">
+            <li><a href="/caduser">Cadastro de Usuários</a></li>
+            <li><a href="/caduser">Cadastro de Clientes</a></li>
+        </ul>
     </main>
 </body>
 </html>

@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def raiz():
-    return render_template('cadusuario.html')
+    return render_template('index.html')
 
 @app.route('/cadastrar_usuario',methods=['POST'])
 def inserir_usuario():
