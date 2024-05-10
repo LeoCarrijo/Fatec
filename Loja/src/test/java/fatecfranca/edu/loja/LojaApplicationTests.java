@@ -1,4 +1,4 @@
-package fatefranca.edu.loja;
+package fatecfranca.edu.loja;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
