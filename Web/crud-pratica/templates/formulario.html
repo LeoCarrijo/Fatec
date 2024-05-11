@@ -12,24 +12,30 @@
     <header class="cabecalho">
         <h1 class="cabecalho__titulo">Cadastro do Usuários</h1>
     </header>
-    <form class="formulario" method="post">
-        <div class="caixa">
-            <label for="nome">Nome: </label>
-            <input type="text" name="nome" id="nome" placeholder="Seu Nome" required>
-        </div>
-        <div class="caixa">
-            <label for="cpf">CPF: </label>
-            <input type="text" name="cpf" onkeyup="formatarCPF()" id="cpf">
-        </div>
-        <div class="caixa">
-            <label for="email">E-mail: </label>
-            <input type="email" name="email" id="email" pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/" required>
-        </div>
-        <div class="caixa">
-            <label for="senha">Senha: </label>
-            <input type="password" name="senha" id="senha">
-        </div>
-    </form>
+    <main class="principal">
+        <form class="formulario" method="post">
+            <div class="caixa">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Seu Nome" required>
+            </div>
+            <div class="caixa">
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" onkeyup="formatarCPF()" id="cpf" placeholder="123.123.123-12">
+            </div>
+            <div class="caixa">
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/" placeholder="seuemail@dominio.com" required>
+            </div>
+            <div class="caixa">
+                <label for="senha">Senha: </label>
+                <input type="password" name="senha" id="senha" placeholder="********">
+            </div>
+            <div class="caixa__botoes">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar Campos">
+            </div>
+        </form>
+    </main>
 </body>
 
     <script>

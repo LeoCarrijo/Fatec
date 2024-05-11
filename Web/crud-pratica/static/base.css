@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-    background-color: #FEEFAD;
+    background-image: url(images/fundoIndex.png);
 }
 
 :root {
