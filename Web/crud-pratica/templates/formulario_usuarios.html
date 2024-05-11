@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
+    <title>Cadastro de Usuários</title>
     <link rel="stylesheet" href="static/style_formulario.css">
     <link rel="stylesheet" href="static/reset.css">
     <link rel="stylesheet" href="static/base.css">
@@ -13,7 +13,7 @@
         <h1 class="cabecalho__titulo">Cadastro do Usuários</h1>
     </header>
     <main class="principal">
-        <form class="formulario" method="post">
+        <form action="/cadastrar_usuario" class="formulario" method="post">
             <div class="caixa">
                 <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome" placeholder="Seu Nome" required>
@@ -35,6 +35,11 @@
                 <input type="reset" value="Limpar Campos">
             </div>
         </form>
+        {% if opcao == 'cadastrado' %}
+        <div class="resposta">
+            <h2>{{usuario}} cadastrado com sucesso!</h2>
+        </div>
+        {% endif %}
     </main>
 </body>
 
