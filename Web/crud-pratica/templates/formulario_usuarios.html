@@ -4,15 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuários</title>
+    {% if opcao == 'alterar' %}
+    <link rel="stylesheet" href="../static/style_formulario.css">
+    <link rel="stylesheet" href="../static/reset.css">
+    <link rel="stylesheet" href="../static/base.css">
+    {% else %}
     <link rel="stylesheet" href="static/style_formulario.css">
     <link rel="stylesheet" href="static/reset.css">
     <link rel="stylesheet" href="static/base.css">
+    {% endif %}
 </head> 
 <body>
     <header class="cabecalho">
         <h1 class="cabecalho__titulo">Cadastro do Usuários</h1>
     </header>
     <main class="principal">
+        {% if opcao == 'alterar' %}
+        {% for user in usuarios %}
+        <form action="{{ url_for('update_usuario', user=user[1]) }}" class="formulario" method="post">
+            <div class="caixa">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Seu Nome" required value={{ user[0] }}>
+            </div>
+            <div class="caixa">
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" onkeyup="formatarCPF()" id="cpf" placeholder="123.123.123-12" value={{ user[1] }}>
+            </div>
+            <div class="caixa">
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/" placeholder="seuemail@dominio.com" required value={{ user[2] }}>
+            </div>
+            <div class="caixa">
+                <label for="senha">Senha: </label>
+                <input type="password" name="senha" id="senha" placeholder="********">
+            </div>
+            <div class="caixa__botoes">
+                <input type="submit" value="Alterar">
+                <input type="reset" value="Limpar Campos">
+            </div>
+        </form>
+        {% endfor %}
+        {% else %}
         <form action="/cadastrar_usuario" class="formulario" method="post">
             <div class="caixa">
                 <label for="nome">Nome: </label>
@@ -35,33 +67,33 @@
                 <input type="reset" value="Limpar Campos">
             </div>
         </form>
+        {% endif %}
         {% if opcao == 'cadastrado' %}
         <div class="resposta">
             <h2>Usuário cadastrado com sucesso!</h2>
         </div>
         {% endif %}
         {% if acao == 'listar' %}
-        <table class="table" action="/selecionar_usuarios" method='post'>
+        <table class="tabela" action="/selecionar_usuarios" method='post'>
             <tr>
-                <th>nome</th>
+                <th>Nome</th>
                 <th>CPF</th>
-                <th>email</th>
-                <th>excluir</th>
-                <th>alterar</th>
+                <th>E-mail</th>
+                <th>Excluir</th>
+                <th>Alterar</th>
             </tr>
             {% for user in usuarios %}
                 <tr>
                     <td>{{user[0]}}</td>
                     <td>{{user[1]}}</td>
-                    <td>{% if user[2] is not none %}
-                            {{user[2]}}
-                        {%else%}
-                            vazio
-                        {%endif%}
+                    <td>{{user[2]}}</td>
+                    <td>
+                        <a class="botao__excluir" href="#">Excluir</a>
+                    </td>
+                    <td>
+                        <a class="botao__alterar" href="{{ url_for('alterar_usuario', user=user[1]) }}">Alterar</a>
                     </td>
                 </tr>
-                <td></td>
-                <td></td>
             {%endfor%}
         </table>
         {% endif %}

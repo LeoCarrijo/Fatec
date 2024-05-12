@@ -1,7 +1,16 @@
 @charset "UTF-8";
 
 body {
+    background-color: var(--bege);
+    overflow-x: hidden;
+}
+
+.principal {
     background-image: url(images/fundoIndex.png);
+    background-repeat: no-repeat;
+    background-color: var(--bege);
+    min-height: 100vh;
+    margin-bottom: 15px;
 }
 
 :root {
