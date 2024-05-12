@@ -27,9 +27,14 @@ def cadastrar_usuario():
     values = (nome, cpf, email, senha)
     mycursor.execute(query, values)
     db.commit()
-    return redirect('/formulario_usuario', usuario=nome, opcao='cadastrado')
+    return redirect('/selecionar_usuarios')
 
-@app.route
+@app.route("/selecionar_usuarios")
+def selecionar_usuarios():
+    query = 'SELECT nome, cpf, email FROM usuarios'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template('formulario_usuarios.html', acao='listar', usuarios=resultado, opcao='cadastrado')
 
 @app.route("/formulario_cliente")
 def formulario_cliente():

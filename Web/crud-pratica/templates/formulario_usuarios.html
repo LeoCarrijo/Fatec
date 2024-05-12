@@ -37,8 +37,33 @@
         </form>
         {% if opcao == 'cadastrado' %}
         <div class="resposta">
-            <h2>{{usuario}} cadastrado com sucesso!</h2>
+            <h2>Usuário cadastrado com sucesso!</h2>
         </div>
+        {% endif %}
+        {% if acao == 'listar' %}
+        <table class="table" action="/selecionar_usuarios" method='post'>
+            <tr>
+                <th>nome</th>
+                <th>CPF</th>
+                <th>email</th>
+                <th>excluir</th>
+                <th>alterar</th>
+            </tr>
+            {% for user in usuarios %}
+                <tr>
+                    <td>{{user[0]}}</td>
+                    <td>{{user[1]}}</td>
+                    <td>{% if user[2] is not none %}
+                            {{user[2]}}
+                        {%else%}
+                            vazio
+                        {%endif%}
+                    </td>
+                </tr>
+                <td></td>
+                <td></td>
+            {%endfor%}
+        </table>
         {% endif %}
     </main>
 </body>
