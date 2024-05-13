@@ -42,14 +42,13 @@ def alterar_usuario(user):
     mycursor.execute(query)
     resultado = mycursor.fetchall()
     return render_template('formulario_usuarios.html', usuarios=resultado, opcao='alterar', acao='listar')
-@app.route("/update_usuario/<user>")
+@app.route("/update_usuario/<user>", methods=['POST'])
 def update_usuario(user):
     nome = request.form['nome']
     cpf = request.form['cpf'].replace('.', '').replace('-', '')
     email = request.form['email']
     senha = request.form['senha']
-    query = "UPDATE usuarios SET nome = '" + nome + "', cpf = '"
-    + cpf + "', email = '" + email + "', senha = '" + senha + "' WHERE cpf = '" + user + "'"
+    query = "UPDATE usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "', senha = '" + senha + "' WHERE cpf = '" + user + "'"
     mycursor.execute(query)
     db.commit()
     return redirect("/selecionar_usuarios")
