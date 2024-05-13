@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuários</title>
-    {% if opcao == 'alterar' %}
+    {% if opcao == 'alterar' or 'deletado' %}
     <link rel="stylesheet" href="../static/style_formulario.css">
     <link rel="stylesheet" href="../static/reset.css">
     <link rel="stylesheet" href="../static/base.css">
@@ -72,6 +72,10 @@
         <div class="resposta">
             <h2>Usuário cadastrado com sucesso!</h2>
         </div>
+        {% elif opcao == 'deletado' %}
+        <div class="resposta">
+            <h2>Usuário deletado com sucesso!</h2>
+        </div>
         {% endif %}
         {% if acao == 'listar' %}
         <table class="tabela" action="/selecionar_usuarios" method='post'>
@@ -88,7 +92,7 @@
                     <td>{{user[1]}}</td>
                     <td>{{user[2]}}</td>
                     <td>
-                        <a class="botao__excluir" href="#">Excluir</a>
+                        <a class="botao__excluir" href="{{ url_for('deletar_usuario', user=user[1]) }}" method="DELETE">Excluir</a>
                     </td>
                     <td>
                         <a class="botao__alterar" href="{{ url_for('alterar_usuario', user=user[1]) }}">Alterar</a>

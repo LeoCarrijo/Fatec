@@ -16,7 +16,10 @@ def root():
 
 @app.route("/formulario_usuario")
 def formulario_usuario():
-    return render_template('formulario_usuarios.html')
+    query = 'SELECT nome, cpf, email FROM usuarios'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template('formulario_usuarios.html', acao='listar', opcao='', usuarios=resultado)
 @app.route("/cadastrar_usuario", methods=['POST'])
 def cadastrar_usuario():
     nome = request.form['nome']
@@ -52,6 +55,16 @@ def update_usuario(user):
     mycursor.execute(query)
     db.commit()
     return redirect("/selecionar_usuarios")
+
+@app.route("/deletar_usuario/<user>", methods=['DELETE', 'POST', 'GET'])
+def deletar_usuario(user):
+    query = "DELETE FROM usuarios WHERE cpf = '" + user + "'"
+    mycursor.execute(query)
+    db.commit()
+    query = 'SELECT nome, cpf, email FROM usuarios'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template("formulario_usuarios.html", acao = 'listar', opcao = 'deletado', usuarios = resultado)
 
 @app.route("/formulario_cliente")
 def formulario_cliente():
