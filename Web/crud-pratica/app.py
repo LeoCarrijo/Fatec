@@ -10,6 +10,26 @@ db = mysql.connector.connect(host='127.0.0.1',
                                 database='leocarrijo_database')
 mycursor = db.cursor()
 
+def pegar_dados_formulario_usuario():
+    nome = request.form['nome']
+    cpf = request.form['cpf'].replace('.', '').replace('-', '')
+    email = request.form['email']
+    senha = request.form['senha']
+    return[nome, cpf, email, senha]
+
+def pegar_dados_formulario_cliente():
+    nome = request.form['nome']
+    data_nascimento = request.form['data_nascimento']
+    cpf = request.form['cpf'].replace('.', '').replace('-', '')
+    rg = request.form['rg'].replace('.', '').replace('-', '')
+    email = request.form['email']
+    endereco = request.form['endereco']
+    bairro = request.form['bairro']
+    cidade = request.form['cidade']
+    uf = request.form['uf']
+    cep = request.form['cep'].replace('-', '')
+    return [nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep]
+
 @app.route("/")
 def root():
     return render_template('index.html')
@@ -22,12 +42,9 @@ def formulario_usuario():
     return render_template('formulario_usuarios.html', acao='listar', opcao='', usuarios=resultado)
 @app.route("/cadastrar_usuario", methods=['POST'])
 def cadastrar_usuario():
-    nome = request.form['nome']
-    cpf = request.form['cpf'].replace('.', '').replace('-', '')
-    email = request.form['email']
-    senha = request.form['senha']
+    dados = pegar_dados_formulario_usuario()
     query = "INSERT INTO usuarios (nome, cpf, email, senha) VALUES (%s,%s,%s,%s)"
-    values = (nome, cpf, email, senha)
+    values = (dados[0], dados[1], dados[2], dados[3])
     mycursor.execute(query, values)
     db.commit()
     return redirect('/selecionar_usuarios')
@@ -47,11 +64,8 @@ def alterar_usuario(user):
     return render_template('formulario_usuarios.html', usuarios=resultado, opcao='alterar', acao='listar')
 @app.route("/update_usuario/<user>", methods=['POST'])
 def update_usuario(user):
-    nome = request.form['nome']
-    cpf = request.form['cpf'].replace('.', '').replace('-', '')
-    email = request.form['email']
-    senha = request.form['senha']
-    query = "UPDATE usuarios SET nome = '" + nome + "', cpf = '" + cpf + "', email = '" + email + "', senha = '" + senha + "' WHERE cpf = '" + user + "'"
+    dados = pegar_dados_formulario_usuario()
+    query = "UPDATE usuarios SET nome = '" + dados[0] + "', cpf = '" + dados[1] + "', email = '" + dados[2] + "', senha = '" + dados[3] + "' WHERE cpf = '" + dados[1] + "'"
     mycursor.execute(query)
     db.commit()
     return redirect("/selecionar_usuarios")
@@ -76,18 +90,9 @@ def formulario_cliente():
     return render_template('formulario_cliente.html', acao='listar', usuarios=resultado)
 @app.route("/cadastrar_cliente", methods=['POST'])
 def cadastrar_cliente():
-    nome = request.form['nome']
-    data_nascimento = request.form['data_nascimento']
-    cpf = request.form['cpf'].replace('.', '').replace('-', '')
-    rg = request.form['rg'].replace('.', '').replace('-', '')
-    email = request.form['email']
-    endereco = request.form['endereco']
-    bairro = request.form['bairro']
-    cidade = request.form['cidade']
-    uf = request.form['uf']
-    cep = request.form['cep'].replace('-', '')
+    dados = pegar_dados_formulario_cliente()
     query = "INSERT INTO clientes (nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-    values = (nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep)
+    values = (dados[0], dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7], dados[8], dados[9])
     mycursor.execute(query, values)
     db.commit()
     return redirect('/selecionar_clientes')
@@ -117,17 +122,8 @@ def alterar_cliente(user):
     return render_template('formulario_cliente.html', usuarios=resultado, opcao='alterar', acao='listar')
 @app.route("/update_cliente/<user>", methods=['POST'])
 def update_cliente(user):
-    nome = request.form['nome']
-    data_nascimento = request.form['data_nascimento']
-    cpf = request.form['cpf'].replace('.', '').replace('-', '')
-    rg = request.form['rg'].replace('.', '').replace('-', '')
-    email = request.form['email']
-    endereco = request.form['endereco']
-    bairro = request.form['bairro']
-    cidade = request.form['cidade']
-    uf = request.form['uf']
-    cep = request.form['cep'].replace('-', '')
-    query = "UPDATE clientes SET nome = '" + nome + "', data_nascimento = '" + data_nascimento + "', cpf = '" + cpf + "', rg = '" + rg + "', email = '" + email + "', endereco = '" + endereco + "', bairro = '" + bairro + "', cidade = '" + cidade + "', uf = '" + uf + "', cep = '" + cep + "' WHERE cpf = '" + user + "'"
+    dados = pegar_dados_formulario_cliente()
+    query = "UPDATE clientes SET nome = '" + dados[0] + "', data_nascimento = '" + dados[1] + "', cpf = '" + dados[2] + "', rg = '" + dados[3] + "', email = '" + dados[4] + "', endereco = '" + dados[5] + "', bairro = '" + dados[6] + "', cidade = '" + dados[7] + "', uf = '" + dados[8] + "', cep = '" + dados[9] + "' WHERE cpf = '" + dados[2] + "'"
     mycursor.execute(query)
     db.commit()
     return redirect("/selecionar_clientes")
