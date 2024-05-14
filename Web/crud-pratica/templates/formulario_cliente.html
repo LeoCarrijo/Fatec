@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    {% if opcao == 'alterar' or 'deletado' %}
+    <link rel="stylesheet" href="../static/style_formulario.css">
+    <link rel="stylesheet" href="../static/reset.css">
+    <link rel="stylesheet" href="../static/base.css">
+    {% else %}
+    <link rel="stylesheet" href="static/style_formulario.css">
+    <link rel="stylesheet" href="static/reset.css">
+    <link rel="stylesheet" href="static/base.css">
+    {% endif %}
+</head> 
+<body>
+    <header class="cabecalho">
+        <h1 class="cabecalho__titulo">Cadastro do Usuários</h1>
+    </header>
+    <main class="principal">
+        {% if opcao == 'alterar' %}
+        {% for user in usuarios %}
+        <form action="" class="formulario" method="post">
+            <div class="caixa">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Seu Nome" required value={{ user[0] }}>
+            </div>
+            <div class="caixa">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" name="data_nascimento" id="data_nascimento" placeholder="xx/xx/xxxx" value={{ user[1] }}>
+            </div>
+            <div class="caixa">
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" onkeyup="formatarCPF()" id="cpf" placeholder="123.123.123-12" value={{ user[2] }}>
+            </div>
+            <div class="caixa">
+                <label for="rg">RG:</label>
+                <input type="text" name="rg" id="rg" onkeyup required="formatarRG()" placeholder="12.123.123-1" value={{ user[3] }}>
+            </div>
+            <div class="caixa">
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/" placeholder="seuemail@dominio.com" required value={{ user[4] }}>
+            </div>
+            <div class="caixa">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" required value={{ user[5] }}>
+            </div>
+            <div class="caixa">
+                <label for="bairro">Bairro</label>
+                <input type="text" name="bairro" id="bairro" required value={{ user[6] }}>
+            </div>
+            <div class="caixa">
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" id="cidade" required value={{ user[7] }}>
+            </div>
+            <div class="caixa">
+                <label for="uf">UF:</label>
+                <input type="text" name="uf" id="uf" maxlength="2" required value={{ user[8] }}>
+            </div>
+            <div class="caixa">
+                <label for="cep">CEP:</label>
+                <input type="text" name="cep" id="cep" minlength="8" maxlength="8" required value={{ user[9] }}>
+            </div>
+            <div class="caixa__botoes">
+                <input type="submit" value="Alterar">
+                <input type="reset" value="Limpar Campos">
+            </div>
+        </form>
+        {% endfor %}
+        {% else %}
+        <form action="/cadastrar_cliente" class="formulario" method="post">
+            <div class="caixa">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Seu Nome" required>
+            </div>
+            <div class="caixa">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" name="data_nascimento" id="data_nascimento" placeholder="xx/xx/xxxx">
+            </div>
+            <div class="caixa">
+                <label for="cpf">CPF: </label>
+                <input type="text" name="cpf" onkeyup="formatarCPF()" id="cpf" placeholder="123.123.123-12">
+            </div>
+            <div class="caixa">
+                <label for="rg">RG:</label>
+                <input type="text" name="rg" id="rg" onkeyup required="formatarRG()" placeholder="12.123.123-1">
+            </div>
+            <div class="caixa">
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" pattern="/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/" placeholder="seuemail@dominio.com" required>
+            </div>
+            <div class="caixa">
+                <label for="endereco">Endereço:</label>
+                <input type="text" name="endereco" id="endereco" required>
+            </div>
+            <div class="caixa">
+                <label for="bairro">Bairro</label>
+                <input type="text" name="bairro" id="bairro" required>
+            </div>
+            <div class="caixa">
+                <label for="cidade">Cidade:</label>
+                <input type="text" name="cidade" id="cidade" required>
+            </div>
+            <div class="caixa">
+                <label for="uf">UF:</label>
+                <input type="text" name="uf" id="uf" maxlength="2" required>
+            </div>
+            <div class="caixa">
+                <label for="cep">CEP:</label>
+                <input type="text" name="cep" id="cep" minlength="8" maxlength="8" required>
+            </div>
+            <div class="caixa__botoes">
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar Campos">
+            </div>
+        </form>
+        {% endif %}
+        {% if opcao == 'cadastrado' %}
+        <div class="resposta">
+            <h2>Usuário cadastrado com sucesso!</h2>
+        </div>
+        {% elif opcao == 'deletado' %}
+        <div class="resposta">
+            <h2>Usuário deletado com sucesso!</h2>
+        </div>
+        {% endif %}
+        {% if acao == 'listar' %}
+        <table class="tabela" action="/selecionar_clientes" method='post'>
+            <tr>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>CPF</th>
+                <th>RG</th>
+                <th>E-mail</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>UF</th>
+                <th>CEP</th>
+                <th>Excluir</th>
+                <th>Alterar</th>
+            </tr>
+            {% for user in usuarios %}
+            <tr>
+                <td>{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+                <td>{{user[2]}}</td>
+                <td>{{user[3]}}</td>
+                <td>{{user[4]}}</td>
+                <td>{{user[5]}}</td>
+                <td>{{user[6]}}</td>
+                <td>{{user[7]}}</td>
+                <td>{{user[8]}}</td>
+                <td>{{user[9]}}</td>
+                <td>
+                    <a class="botao__excluir" href="{{ url_for('deletar_cliente', user=user[2]) }}">Excluir</a>
+                </td>
+                <td>
+                    <a class="botao__alterar" href="{{ url_for('alterar_cliente', user=user[2]) }}">Alterar</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </table>
+        {% endif %}
+    </main>
+</body>
+
+    <script>
+        function formatarCPF() {
+            var cpf = document.getElementById('cpf');
+            var valor = cpf.value;
+            
+            valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+            valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca um ponto entre o terceiro e o quarto dígitos
+            valor = valor.replace(/(\d{3})(\d)/, "$1.$2"); // Coloca um ponto entre o terceiro e o quarto dígitos de novo (para o segundo bloco de números)
+            valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Coloca um hífen entre o terceiro e o quarto dígitos
+            
+            cpf.value = valor;
+        }
+
+        function formatarRG() {
+            var rg = document.getElementById('rg');
+            var valor = rg.value;
+
+            valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+            valor = valor.replace(/^(\d{2})(\d)/, "$1.$2"); // Coloca ponto entre o segundo e o terceiro dígitos
+            valor = valor.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3"); // Coloca ponto entre o quinto e o sexto dígitos
+            valor = valor.replace(/\.(\d{3})(\d)/, ".$1-$2"); // Coloca um hífen depois do bloco de três dígitos
+
+            rg.value = valor;
+        }
+
+        function formatCEP(input) {
+            var cep = document.getElementById('cep');
+            var valor = cep.value;
+
+            valor = valor.replace(/\D/g, ""); // Remove tudo o que não é dígito
+            valor = valor.replace(/^(\d{5})(\d)/, "$1-$2"); // Coloca hífen entre o quinto e o sexto dígitos
+
+            cep.value = valor;
+        }
+    </script>
+
+</html>

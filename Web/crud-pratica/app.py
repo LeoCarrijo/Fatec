@@ -68,6 +68,33 @@ def deletar_usuario(user):
 
 @app.route("/formulario_cliente")
 def formulario_cliente():
-    return render_template('formulario_clientes.html')
+    query = 'SELECT nome, cpf, email FROM clientes'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template('formulario_cliente.html', acao='listar', opcao='cadastrado', usuarios=resultado)
+@app.route("/cadastrar_cliente", methods=['POST'])
+def cadastrar_cliente():
+    nome = request.form['nome']
+    data_nascimento = request.form['data_nascimento']
+    cpf = request.form['cpf'].replace('.', '').replace('-', '')
+    rg = request.form['rg'].replace('.', '').replace('-', '')
+    email = request.form['email']
+    endereco = request.form['endereco']
+    bairro = request.form['bairro']
+    cidade = request.form['cidade']
+    uf = request.form['uf']
+    cep = request.form['cep'].replace('-', '')
+    query = "INSERT INTO clientes (nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    values = (nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep)
+    mycursor.execute(query, values)
+    db.commit()
+    return redirect('/selecionar_clientes')
+
+@app.route("/selecionar_clientes")
+def selecionar_clientes():
+    query = 'SELECT nome, cpf, email FROM clientes'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template('formulario_cliente.html', acao='listar', opcao='cadastrado', usuarios=resultado)
 
 app.run()
