@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+:root {
+    --azul-piscina: #03AED2;
+    --azul-claro-contorno: #2d5f69;
+    --azul-claro: #68D2E8;
+    --amarelo: #FDDE55;
+    --amarelo-sombra: #82722e;
+    --bege: #FEEFAD;
+    --fundo-input: #9dc0c7;
+    --tamanho-fonte-form: 0.7rem;
+}
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100vw;
+    padding: 10px;
+}
+
+.formulario {
+    background-color: var(--amarelo);
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px var(--amarelo-sombra);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.formulario .caixa, .formulario .caixa__botoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    padding: 10px 0px;
+    gap: 10px;
+}
+
+.formulario .caixa input {
+    height: 1.5rem;
+    border: 1px solid var(--azul-claro-contorno);
+    border-radius: 6px;
+    color: black;
+    font-size: 1.3rem;
+    padding: 15px 4px;
+}
+
+.formulario .caixa input:focus {
+    transition: 0.15s;
+    background-color: var(--fundo-input);
+}
+
+.formulario .caixa__botoes input {
+    background-color: var(--azul-piscina);
+    color: var(--azul-claro-contorno);
+    border: 1px solid var(--azul-claro-contorno);
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.formulario .caixa__botoes input:hover {
+    transition: 0.3s;
+    background-color: var(--azul-claro-contorno);
+    color: var(--azul-piscina);
+    border: 1px solid var(--azul-piscina);
+}
+
+.resposta {
+    margin: 15px 0px;
+}
+
+.tabela {
+    box-shadow: 1px 1px 3px black;
+    border-radius: 3px;
+    margin: 10px 5px;
+    background-color: var(--amarelo);
+}
+
+.tabela th {
+    background-color: var(--azul-claro);
+    text-decoration: underline;
+}
+
+.tabela, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px 10px;
+    font-size: var(--tamanho-fonte-form);
+}
+
+.botao__excluir, .botao__alterar {
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: underline;
+    border: 1px solid #000;
+    font-weight: bold;
+}
+
+.botao__excluir {
+    background-color: rgb(255, 35, 90);
+    box-shadow: 1px 1px 3px rgb(83, 12, 29);
+}
+
+.botao__alterar {
+    background-color: rgb(0, 84, 153);
+    box-shadow: 1px 1px 3px rgb(0, 35, 63);
+}

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Usuários</title>
     {% if opcao == 'alterar' or 'deletado' %}
-    <link rel="stylesheet" href="../static/style_formulario.css">
+    <link rel="stylesheet" href="../static/style_formulario_cliente.css">
     <link rel="stylesheet" href="../static/reset.css">
     <link rel="stylesheet" href="../static/base.css">
     {% else %}
-    <link rel="stylesheet" href="static/style_formulario.css">
+    <link rel="stylesheet" href="static/style_formulario_cliente.css">
     <link rel="stylesheet" href="static/reset.css">
     <link rel="stylesheet" href="static/base.css">
     {% endif %}
@@ -21,14 +21,14 @@
     <main class="principal">
         {% if opcao == 'alterar' %}
         {% for user in usuarios %}
-        <form action="" class="formulario" method="post">
+        <form action="{{ url_for('update_cliente', user=user[2]) }}" class="formulario" method="post">
             <div class="caixa">
                 <label for="nome">Nome: </label>
                 <input type="text" name="nome" id="nome" placeholder="Seu Nome" required value={{ user[0] }}>
             </div>
             <div class="caixa">
                 <label for="data_nascimento">Data de Nascimento:</label>
-                <input type="date" name="data_nascimento" id="data_nascimento" placeholder="xx/xx/xxxx" value={{ user[1] }}>
+                <input type="date" name="data_nascimento" id="data_nascimento" placeholder="xx/xx/xxxx" value={{ user[1] }} required>
             </div>
             <div class="caixa">
                 <label for="cpf">CPF: </label>
@@ -36,7 +36,7 @@
             </div>
             <div class="caixa">
                 <label for="rg">RG:</label>
-                <input type="text" name="rg" id="rg" onkeyup required="formatarRG()" placeholder="12.123.123-1" value={{ user[3] }}>
+                <input type="text" name="rg" id="rg" onkeyup required="formatarRG()" onkeyup="formatarRG()" placeholder="12.123.123-1" value={{ user[3] }}>
             </div>
             <div class="caixa">
                 <label for="email">E-mail: </label>
@@ -44,23 +44,23 @@
             </div>
             <div class="caixa">
                 <label for="endereco">Endereço:</label>
-                <input type="text" name="endereco" id="endereco" required value={{ user[5] }}>
+                <input type="text" name="endereco" id="endereco" required value={{ user[5] }} placeholder="Rua & número">
             </div>
             <div class="caixa">
                 <label for="bairro">Bairro</label>
-                <input type="text" name="bairro" id="bairro" required value={{ user[6] }}>
+                <input type="text" name="bairro" id="bairro" required value={{ user[6] }} placeholder="Seu Bairro">
             </div>
             <div class="caixa">
                 <label for="cidade">Cidade:</label>
-                <input type="text" name="cidade" id="cidade" required value={{ user[7] }}>
+                <input type="text" name="cidade" id="cidade" required value={{ user[7] }} placeholder="Sua cidade">
             </div>
             <div class="caixa">
                 <label for="uf">UF:</label>
-                <input type="text" name="uf" id="uf" maxlength="2" required value={{ user[8] }}>
+                <input type="text" name="uf" id="uf" maxlength="2" required value={{ user[8] }} placeholder="Sigla do Estado">
             </div>
             <div class="caixa">
                 <label for="cep">CEP:</label>
-                <input type="text" name="cep" id="cep" minlength="8" maxlength="8" required value={{ user[9] }}>
+                <input type="text" name="cep" id="cep" minlength="9" maxlength="9" required value={{ user[9] }} onkeyup="formatarCEP()" placeholder="xxxxx-xxx">
             </div>
             <div class="caixa__botoes">
                 <input type="submit" value="Alterar">
@@ -84,7 +84,7 @@
             </div>
             <div class="caixa">
                 <label for="rg">RG:</label>
-                <input type="text" name="rg" id="rg" onkeyup required="formatarRG()" placeholder="12.123.123-1">
+                <input type="text" name="rg" id="rg" onkeyup="formatarRG()" required="formatarRG()" placeholder="12.123.123-1">
             </div>
             <div class="caixa">
                 <label for="email">E-mail: </label>
@@ -92,23 +92,23 @@
             </div>
             <div class="caixa">
                 <label for="endereco">Endereço:</label>
-                <input type="text" name="endereco" id="endereco" required>
+                <input type="text" name="endereco" id="endereco" required placeholder="Rua & número">
             </div>
             <div class="caixa">
                 <label for="bairro">Bairro</label>
-                <input type="text" name="bairro" id="bairro" required>
+                <input type="text" name="bairro" id="bairro" required placeholder="Seu Bairro">
             </div>
             <div class="caixa">
                 <label for="cidade">Cidade:</label>
-                <input type="text" name="cidade" id="cidade" required>
+                <input type="text" name="cidade" id="cidade" required placeholder="Sua cidade">
             </div>
             <div class="caixa">
                 <label for="uf">UF:</label>
-                <input type="text" name="uf" id="uf" maxlength="2" required>
+                <input type="text" name="uf" id="uf" maxlength="2" required placeholder="Sigla do Estado">
             </div>
             <div class="caixa">
                 <label for="cep">CEP:</label>
-                <input type="text" name="cep" id="cep" minlength="8" maxlength="8" required>
+                <input type="text" name="cep" id="cep" minlength="9" maxlength="9" required placeholder="xxxxx-xxx" onkeyup="formatarCEP()">
             </div>
             <div class="caixa__botoes">
                 <input type="submit" value="Enviar">
@@ -191,7 +191,7 @@
             rg.value = valor;
         }
 
-        function formatCEP(input) {
+        function formatarCEP() {
             var cep = document.getElementById('cep');
             var valor = cep.value;
 

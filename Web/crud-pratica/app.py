@@ -56,7 +56,7 @@ def update_usuario(user):
     db.commit()
     return redirect("/selecionar_usuarios")
 
-@app.route("/deletar_usuario/<user>", methods=['DELETE', 'POST', 'GET'])
+@app.route("/deletar_usuario/<user>", methods=['POST', 'GET'])
 def deletar_usuario(user):
     query = "DELETE FROM usuarios WHERE cpf = '" + user + "'"
     mycursor.execute(query)
@@ -66,12 +66,14 @@ def deletar_usuario(user):
     resultado = mycursor.fetchall()
     return render_template("formulario_usuarios.html", acao = 'listar', opcao = 'deletado', usuarios = resultado)
 
+#---------------------------|FORMULARIO CLIENTE|---------------------------#
+
 @app.route("/formulario_cliente")
 def formulario_cliente():
-    query = 'SELECT nome, cpf, email FROM clientes'
+    query = 'SELECT nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep FROM clientes'
     mycursor.execute(query)
     resultado = mycursor.fetchall()
-    return render_template('formulario_cliente.html', acao='listar', opcao='cadastrado', usuarios=resultado)
+    return render_template('formulario_cliente.html', acao='listar', usuarios=resultado)
 @app.route("/cadastrar_cliente", methods=['POST'])
 def cadastrar_cliente():
     nome = request.form['nome']
@@ -92,9 +94,42 @@ def cadastrar_cliente():
 
 @app.route("/selecionar_clientes")
 def selecionar_clientes():
-    query = 'SELECT nome, cpf, email FROM clientes'
+    query = 'SELECT nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep FROM clientes'
     mycursor.execute(query)
     resultado = mycursor.fetchall()
     return render_template('formulario_cliente.html', acao='listar', opcao='cadastrado', usuarios=resultado)
+
+@app.route("/deletar_cliente/<user>", methods=['POST', 'GET'])
+def deletar_cliente(user):
+    query = "DELETE FROM clientes WHERE cpf = '" + user + "'"
+    mycursor.execute(query)
+    db.commit()
+    query = 'SELECT nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep FROM clientes'
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template("formulario_cliente.html", acao = 'listar', opcao = 'deletado', usuarios = resultado)
+
+@app.route("/alterar_cliente/<user>")
+def alterar_cliente(user):
+    query = 'SELECT nome, data_nascimento, cpf, rg, email, endereco, bairro, cidade, uf, cep FROM clientes WHERE cpf = ' + user
+    mycursor.execute(query)
+    resultado = mycursor.fetchall()
+    return render_template('formulario_cliente.html', usuarios=resultado, opcao='alterar', acao='listar')
+@app.route("/update_cliente/<user>", methods=['POST'])
+def update_cliente(user):
+    nome = request.form['nome']
+    data_nascimento = request.form['data_nascimento']
+    cpf = request.form['cpf'].replace('.', '').replace('-', '')
+    rg = request.form['rg'].replace('.', '').replace('-', '')
+    email = request.form['email']
+    endereco = request.form['endereco']
+    bairro = request.form['bairro']
+    cidade = request.form['cidade']
+    uf = request.form['uf']
+    cep = request.form['cep'].replace('-', '')
+    query = "UPDATE clientes SET nome = '" + nome + "', data_nascimento = '" + data_nascimento + "', cpf = '" + cpf + "', rg = '" + rg + "', email = '" + email + "', endereco = '" + endereco + "', bairro = '" + bairro + "', cidade = '" + cidade + "', uf = '" + uf + "', cep = '" + cep + "' WHERE cpf = '" + user + "'"
+    mycursor.execute(query)
+    db.commit()
+    return redirect("/selecionar_clientes")
 
 app.run()
