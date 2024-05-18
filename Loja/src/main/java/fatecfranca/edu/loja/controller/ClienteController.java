@@ -29,7 +29,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletarID(@PathVariable Long id) {
-        injecao.deletarCliente(id);
+    public String deletarID(@PathVariable Long id) {
+        return injecao.deletarCliente(id);
     }
 }

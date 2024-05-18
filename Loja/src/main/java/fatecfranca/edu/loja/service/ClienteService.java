@@ -39,8 +39,14 @@ public class ClienteService {
     }
 
     // Deleta um usuário do BD
-    public void deletarCliente(Long id) {
-        injecao.deleteById(id);
+    public String deletarCliente(Long id) {
+        if(injecao.existsById(id)){
+            injecao.deleteById(id);
+            return "Remoção concluída com sucesso";
+        }else{
+            return "Cliente não encontrado para remoção";
+        }
+
     }
 
     // Converte uma lista de ClienteEntity em outra lista de ClienteDTO
