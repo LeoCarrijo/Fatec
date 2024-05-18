@@ -1,4 +1,4 @@
-package fatecfranca.edu.lojapratica;
+package fatecfranca.edu.lojapratica.controller;
 
 import fatecfranca.edu.lojapratica.model.entity.ClienteEntity;
 import fatecfranca.edu.lojapratica.service.ClienteService;
