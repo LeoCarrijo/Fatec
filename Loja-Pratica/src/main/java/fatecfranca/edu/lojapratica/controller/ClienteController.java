@@ -4,10 +4,9 @@ import fatecfranca.edu.lojapratica.model.dto.ClienteDTO;
 import fatecfranca.edu.lojapratica.model.entity.ClienteEntity;
 import fatecfranca.edu.lojapratica.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/cliente")
@@ -17,5 +16,15 @@ public class ClienteController {
     @PostMapping
     public ClienteDTO insere(@RequestBody ClienteDTO clienteDTO) {
         return injecao.insere(clienteDTO);
+    }
+
+    @GetMapping
+    public List<ClienteDTO> consultaTodos() {
+        return injecao.consultaTodos();
+    }
+
+    @GetMapping("{id}")
+    public ClienteDTO consultaPorId(@PathVariable Long id) {
+        return injecao.consultaPorId(id);
     }
 }
