@@ -1,4 +1,4 @@
-package fatecfranca.edu.lojapratica;
+package fatecfranca.edu.lojapratica.model.dto;
 
 public class ClienteDTO {
     private Long id;
