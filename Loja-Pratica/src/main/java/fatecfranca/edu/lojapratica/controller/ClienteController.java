@@ -27,4 +27,9 @@ public class ClienteController {
     public ClienteDTO consultaPorId(@PathVariable Long id) {
         return injecao.consultaPorId(id);
     }
+
+    @DeleteMapping("/{id}")
+    public String excluirPorId(@PathVariable Long id) {
+        return injecao.deletarCliente(id);
+    }
 }
