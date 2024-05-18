@@ -38,6 +38,11 @@ public class ClienteService {
         return converteEntities(injecao.findAll());
     }
 
+    // Deleta um usuário do BD
+    public void deletarCliente(Long id) {
+        injecao.deleteById(id);
+    }
+
     // Converte uma lista de ClienteEntity em outra lista de ClienteDTO
     public List<ClienteDTO> converteEntities(List<ClienteEntity> listaEntities) {
         // Cria uma lista que vai guardar os ClienteDTOs
