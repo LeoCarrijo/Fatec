@@ -23,6 +23,14 @@ public class ClienteService {
         return converteEntitiesParaDTOs(injecao.findAll());
     }
 
+    public String deletarCliente(Long id) {
+        if(injecao.existsById(id)) {
+            injecao.deleteById(id);
+            return "Cliente deletado com sucesso!";
+        }
+        return "Cliente não encontrado para remoção";
+    }
+
     public List<ClienteDTO> converteEntitiesParaDTOs(List<ClienteEntity> clienteEntities) {
         List<ClienteDTO> clienteDTOs = new ArrayList<ClienteDTO>();
         for(ClienteEntity clienteEntity : clienteEntities){
