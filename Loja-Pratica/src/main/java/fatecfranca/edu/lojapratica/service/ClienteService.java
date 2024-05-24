@@ -42,6 +42,15 @@ public class ClienteService {
         return converteEntitiesParaDTOs(clientes);
     }
 
+    public ClienteDTO atualizaPorid(Long id, ClienteDTO clienteDTO) {
+        if(injecao.existsById(id)){
+            clienteDTO.setId(id);
+            return converteParaDTO(injecao.save(converteParaEntity(clienteDTO)));
+        } else {
+            return null;
+        }
+    }
+
     public List<ClienteDTO> converteEntitiesParaDTOs(List<ClienteEntity> clienteEntities) {
         List<ClienteDTO> clienteDTOs = new ArrayList<ClienteDTO>();
         for(ClienteEntity clienteEntity : clienteEntities){

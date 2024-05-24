@@ -37,4 +37,9 @@ public class ClienteController {
     public List<ClienteDTO> tiraDebito() {
         return injecao.tiraDebito();
     }
+
+    @PatchMapping("/{id}")
+    public ClienteDTO atualizaPorId(@PathVariable Long id, @RequestBody ClienteDTO clienteDTO){
+        return injecao.atualizaPorid(id, clienteDTO);
+    }
 }
