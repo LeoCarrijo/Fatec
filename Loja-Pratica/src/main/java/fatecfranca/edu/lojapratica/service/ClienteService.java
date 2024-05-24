@@ -31,6 +31,14 @@ public class ClienteService {
         return "Cliente não encontrado para remoção";
     }
 
+    public List<ClienteDTO> tiraDebito() {
+        List<ClienteEntity> clientes = injecao.findAll();
+        for (ClienteEntity clienteEntity : clientes) {
+            clienteEntity.setDevedor(false);
+        }
+        return converteEntitiesParaDTOs(clientes);
+    }
+
     public List<ClienteDTO> converteEntitiesParaDTOs(List<ClienteEntity> clienteEntities) {
         List<ClienteDTO> clienteDTOs = new ArrayList<ClienteDTO>();
         for(ClienteEntity clienteEntity : clienteEntities){
