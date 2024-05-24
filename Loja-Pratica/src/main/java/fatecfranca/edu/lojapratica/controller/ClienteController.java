@@ -32,4 +32,9 @@ public class ClienteController {
     public String excluirPorId(@PathVariable Long id) {
         return injecao.deletarCliente(id);
     }
+
+    @PutMapping
+    public List<ClienteDTO> tiraDebito() {
+        return injecao.tiraDebito();
+    }
 }
