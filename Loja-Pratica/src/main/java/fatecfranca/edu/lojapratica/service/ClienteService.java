@@ -34,7 +34,10 @@ public class ClienteService {
     public List<ClienteDTO> tiraDebito() {
         List<ClienteEntity> clientes = injecao.findAll();
         for (ClienteEntity clienteEntity : clientes) {
-            clienteEntity.setDevedor(false);
+            if(clienteEntity.isDevedor()){
+                clienteEntity.setDevedor(false);
+                injecao.save(clienteEntity);
+            }
         }
         return converteEntitiesParaDTOs(clientes);
     }
