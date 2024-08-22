@@ -136,8 +136,8 @@ createApp({
         },
         lidarClear() {
             this.display = '0'
-            this.numeroAnterior = '0',
-            this.numeroAtual = '0',
+            this.numeroAnterior = '',
+            this.numeroAtual = '',
             this.operador = null
         },
         lidarNumero(botao) {
@@ -207,5 +207,11 @@ createApp({
         inserirZero() {
             this.display += '0'
         }
+        // Consertar dízimas periódicas
+        // Ao escrever um númmero depois de um resultado ele apagar o resultado
+        // Tecla de apagar
+        // Fazer modo científico
+        // Melhorar aparencia do numeroAnterior
+        // Consertar porcentagem
     }
 }).mount('#app')
