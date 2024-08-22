@@ -90,7 +90,7 @@ createApp({
         },
         lidarPorcentagem() {
             if(this.operador != null) {
-                this.display = Number(this.numeroAnterior) / Number(this.display)
+                this.display = Number(this.numeroAnterior) * (Number(this.display) / 100)
             }
         },
         inserirDecimal() {
@@ -212,6 +212,5 @@ createApp({
         // Tecla de apagar
         // Fazer modo científico
         // Melhorar aparencia do numeroAnterior
-        // Consertar porcentagem
     }
 }).mount('#app')
