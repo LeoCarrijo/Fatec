@@ -6,7 +6,8 @@ createApp({
             display: '0',
             numeroAtual: '',
             numeroAnterior: '',
-            operador: null
+            operador: null,
+            contaRealizada: false
         }
     },
     methods: {
@@ -114,6 +115,7 @@ createApp({
                     this.retornarIgual()
             }
             this.numeroAnterior = ''
+            this.contaRealizada = true
         },
         multiplicar() {
             this.numeroAtual = this.display
@@ -138,10 +140,11 @@ createApp({
             this.display = '0'
             this.numeroAnterior = '',
             this.numeroAtual = '',
-            this.operador = null
+            this.operador = null,
+            this.contaRealizada = false
         },
         lidarNumero(botao) {
-            if(this.display == '0') {
+            if(this.display == '0' || this.contaRealizada) {
                 this.display = ''
             }
             switch(botao) {
@@ -208,7 +211,6 @@ createApp({
             this.display += '0'
         }
         // Consertar dízimas periódicas
-        // Ao escrever um númmero depois de um resultado ele apagar o resultado
         // Tecla de apagar
         // Fazer modo científico
         // Melhorar aparencia do numeroAnterior
