@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Teste</title>
+</head>
+<body>
+    <div id="app">
+        <div class="calculadora">
+            <div class="display">
+                {{numero}}Hello World!
+            </div>
+            <div class="teclado">
+                <div class="linha">
+                    <button class="tecla">AC</button>
+                    <button class="tecla">%</button>
+                    <button class="tecla">x²</button>
+                    <button class="tecla operador">+</button>
+                </div>
+                <div class="linha">
+                    <button class="tecla">7</button>
+                    <button class="tecla">8</button>
+                    <button class="tecla">9</button>
+                    <button class="tecla operador">-</button>
+                </div>
+                <div class="linha">
+                    <button class="tecla">4</button>
+                    <button class="tecla">5</button>
+                    <button class="tecla">6</button>
+                    <button class="tecla operador">/</button>
+                </div>
+                <div class="linha">
+                    <button class="tecla">1</button>
+                    <button class="tecla">2</button>
+                    <button class="tecla">3</button>
+                    <button class="tecla operador">x</button>
+                </div>
+                <div class="linha">
+                    <button class="tecla zero">0</button>
+                    <button class="tecla">,</button>
+                    <button class="tecla operador">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    const { createApp } = Vue
+    createApp({
+        data() {
+            
+        },
+        methods: {
+            soma(x, y) {
+                return x + y;
+            },
+            sub(x, y) {
+                return x - y
+            },
+            div(x, y) {
+                return x / y ? y != 0 : 0
+            },
+            mult(x, y) {
+                return x * y
+            }
+        }
+    }).mount('#app')
+</script>

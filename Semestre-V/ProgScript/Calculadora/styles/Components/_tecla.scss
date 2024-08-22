@@ -1,0 +1,32 @@
+.tecla {
+    width: 64px;
+    height: 64px;
+    border-radius: 5px;
+    border: none;
+    background-color: #989898;
+    margin: 1px;
+    font-size: 23px;
+    color: whitesmoke;
+    &:hover {
+        color: whitesmoke;
+        background-color: #565656;
+    }
+    &:active {
+        background-color: #c2c2c2;
+        transform: translateY(2px)
+    }
+}
+
+.operador {
+    background-color: #f2a014;
+    &:hover {
+        background-color: #af7410;
+    }
+    &:active {
+        background-color: #feb73c;
+    }
+}
+
+.zero {
+    width: 129px;
+}

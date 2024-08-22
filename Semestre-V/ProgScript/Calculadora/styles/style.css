@@ -1,0 +1,56 @@
+html, body {
+  font-family: "Roboto", sans-serif;
+}
+
+.display {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 50px;
+  background-color: rgba(26, 26, 26, 0.14);
+  font-size: 23px;
+  color: whitesmoke;
+  text-shadow: 1px 1px 3px rgba(106, 106, 106, 0.373);
+}
+
+.tecla {
+  width: 64px;
+  height: 64px;
+  border-radius: 5px;
+  border: none;
+  background-color: #989898;
+  margin: 1px;
+  font-size: 23px;
+  color: whitesmoke;
+}
+.tecla:hover {
+  color: whitesmoke;
+  background-color: #565656;
+}
+.tecla:active {
+  background-color: #c2c2c2;
+  transform: translateY(2px);
+}
+
+.operador {
+  background-color: #f2a014;
+}
+.operador:hover {
+  background-color: #af7410;
+}
+.operador:active {
+  background-color: #feb73c;
+}
+
+.zero {
+  width: 129px;
+}
+
+.calculadora {
+  width: 265px;
+  background: rgba(26, 26, 26, 0.14);
+}
+
+.linha {
+  display: flex;
+}/*# sourceMappingURL=style.css.map */

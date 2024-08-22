@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Aula 02</title>
+</head>
+<body>
+    <div id="app">  
+        <h1>{{timer()}}</h1>
+        <h1 v-bind:style="{color: corLetra}">{{numero % 2 === 0 ? 'Par' : 'Ímpar'}}</h1>
+        <h1>{{texto}}</h1>
+        <button @click="change">Trocar Texto</button>
+    </div>
+</body>
+</html>
+
+<script>
+    const { createApp } = Vue
+createApp({
+    data() {
+        return {
+            numero: 0,
+            corLetra: 'red',
+            texto: 'Está abrido! 😂',
+            aux: true
+        }
+    },
+    methods: {
+        timer() {
+            setTimeout(() => {
+                this.numero++
+            }, 1000)
+            this.corLetra = this.numero % 2 === 0 ? 'green' : 'blue'
+            return this.numero
+        },
+        change() {
+            this.texto = this.aux ? "Está abrido! 😂" : "Cocoricó 🦆"
+            this.aux = !this.aux
+        }
+    }
+}).mount("#app")
+</script>
