@@ -2,15 +2,35 @@ html, body {
   font-family: "Roboto", sans-serif;
 }
 
+#app {
+  width: 99vw;
+  height: 96vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: #ffe5b5;
+}
+
 .display {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   height: 50px;
-  background-color: rgba(26, 26, 26, 0.14);
-  font-size: 23px;
+  background-color: rgb(88, 88, 88);
+  padding: 2px 8px;
+  font-size: 30px;
   color: whitesmoke;
   text-shadow: 1px 1px 3px rgba(106, 106, 106, 0.373);
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+.display .numeroAnterior {
+  font-size: 23px;
+  align-self: flex-end;
+  color: burlywood;
 }
 
 .tecla {
@@ -19,7 +39,7 @@ html, body {
   border-radius: 5px;
   border: none;
   background-color: #989898;
-  margin: 1px;
+  margin: 1.5px;
   font-size: 23px;
   color: whitesmoke;
 }
@@ -48,9 +68,19 @@ html, body {
 
 .calculadora {
   width: 265px;
-  background: rgba(26, 26, 26, 0.14);
+  background: rgb(221, 221, 221);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 3px rgba(70, 67, 67, 0.582);
 }
 
 .linha {
   display: flex;
+}
+
+.teclado {
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 4px;
 }/*# sourceMappingURL=style.css.map */
