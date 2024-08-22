@@ -146,6 +146,7 @@ createApp({
         lidarNumero(botao) {
             if(this.display == '0' || this.contaRealizada) {
                 this.display = ''
+                this.contaRealizada = false
             }
             switch(botao) {
                 case '1':
