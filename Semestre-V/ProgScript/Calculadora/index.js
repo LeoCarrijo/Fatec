@@ -91,6 +91,7 @@ createApp({
         },
         lidarPotencia() {
             this.display = Number(this.display) * Number(this.display)
+            this.contaRealizada = true
         },
         lidarPorcentagem() {
             if(this.operador != null) {
