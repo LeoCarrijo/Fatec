@@ -40,6 +40,9 @@ createApp({
                 case "AC":
                     this.lidarClear()
                     break
+                case "backspace":
+                    this.lidarBackspace()
+                    break
                 default:
                     this.lidarNumero(botao)
             }
@@ -92,6 +95,13 @@ createApp({
         lidarPorcentagem() {
             if(this.operador != null) {
                 this.display = Number(this.numeroAnterior) * (Number(this.display) / 100)
+            }
+        },
+        lidarBackspace() {
+            if(this.display.length > 1) {
+                this.display = this.display.slice(0, -1) 
+            } else {
+                this.display = '0'
             }
         },
         inserirDecimal() {
@@ -212,7 +222,6 @@ createApp({
             this.display += '0'
         }
         // Consertar dízimas periódicas
-        // Tecla de apagar
         // Fazer modo científico
         // Melhorar aparencia do numeroAnterior
     }
