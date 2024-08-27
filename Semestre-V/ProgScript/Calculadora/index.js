@@ -95,15 +95,44 @@ createApp({
         },
         lidarPorcentagem() {
             if(this.operador != null) {
-                this.display = Number(this.numeroAnterior) * (Number(this.display) / 100)
+                    switch(this.operador) {
+                        case "+":
+                            this.adicaoPorcentagem()
+                            break
+                        case "-":
+                            this.subtracaoPorcentagem()
+                            break
+                        case "/":
+                            this.multiplicarPorcentagem()
+                            break
+                        case "*":
+                            this.dividirPorcentagem()
+                            break
+                    }
+                
             }
+        },
+        adicaoPorcentagem() {
+            this.display = Number(this.numeroAnterior) * (Number(this.display) / 100)
+        },
+        subtracaoPorcentagem() {
+            this.display = Number(this.numeroAnterior) * (Number(this.display) / 100)
+        },
+        multiplicarPorcentagem() {
+            this.display = Number(this.display) / 100
+        },
+        dividirPorcentagem() {
+            this.display = Number(this.display) / 100
         },
         lidarBackspace() {
             if(this.display.length > 1) {
-                this.display = this.display.slice(0, -1) 
+                this.apagarNumero()
             } else {
                 this.display = '0'
             }
+        },
+        apagarNumero() {
+            this.display = this.display.slice(0, -1) 
         },
         inserirDecimal() {
             this.display += '.'
