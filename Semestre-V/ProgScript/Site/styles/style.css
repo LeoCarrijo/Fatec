@@ -1,0 +1,130 @@
+html, body {
+  font-family: "Roboto", sans-serif;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.cabecalho {
+  background-color: rgb(173, 138, 138);
+  text-align: center;
+  padding: 50px 0px;
+  font-size: 1.3rem;
+}
+.cabecalho h1 {
+  padding-bottom: 20px;
+}
+
+.campo {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.527);
+}
+.campo .input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.campo .input input {
+  font-size: 1.1rem;
+  width: 300px;
+  height: 25px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  transition: 0.15s;
+}
+.campo .input input:focus {
+  background-color: aquamarine;
+}
+.campo p {
+  font-size: 1rem;
+}
+.campo p a {
+  text-decoration: none;
+  color: black;
+  transition: 0.15s;
+}
+.campo p a:hover {
+  font-size: 1.1rem;
+  text-decoration: underline;
+}
+.campo .botoes {
+  display: flex;
+  gap: 16px;
+}
+.campo .botoes button {
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.493);
+}
+.campo .botoes button:hover, .campo .botoes button:focus {
+  background-color: rgb(41, 41, 41);
+  color: whitesmoke;
+}
+.campo .botoes button:active {
+  background-color: whitesmoke;
+  color: rgb(41, 41, 41);
+  transform: translate(1px, 1px);
+}
+
+.principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}/*# sourceMappingURL=style.css.map */

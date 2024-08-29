@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Site Teste</title>
+</head>
+<body>
+    <div id="app">
+        <header class="cabecalho">
+            <h1 v-if="!nome">Seja bem vindo!</h1>
+            <h1 v-else>Seja bem vindo, {{nome}}!</h1>
+            <h4>O lugar onde testo as coisas ╰(*°▽°*)╯</h3>
+        </header>
+        <main class="principal">
+            <section class="campo">
+                <div class="input">
+                    <label for="email">E-mail</label>
+                    <input type="email" placeholder="seuemail@example.com" name="email" id="email">
+                </div>
+                <div class="input">
+                    <label for="nome">Nome</label>
+                    <input type="text" placeholder="Seu Nome" name="nome" id="nome" v-model="nome">
+                </div>
+                <div class="input">
+                    <label for="senha">Senha</label>
+                    <input type="password" placeholder="Senha" name="senha" id="senha">
+                </div>
+                <p><em><a href="#">Esqueci a senha</a></em></p>
+                <div class="botoes">
+                    <button class="entrar">Entrar</button>
+                    <button class="criar__conta">Criar Conta</button>
+                    <button type="reset" class="limpar">Limpar</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+
+
+<script src="index.js"></script>
