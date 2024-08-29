@@ -84,8 +84,7 @@ createApp({
             this.display = '0'
         },
         lidarDecimal() {
-            let jaDecimal = true ? this.display.indexOf(".") == -1 : false
-            if (jaDecimal) {
+            if (!this.display.includes(".")) {
                 this.inserirDecimal()
             }
         },
@@ -156,6 +155,7 @@ createApp({
             }
             this.numeroAnterior = ''
             this.contaRealizada = true
+            this.lidarDizima()
         },
         multiplicar() {
             this.numeroAtual = this.display
@@ -175,6 +175,12 @@ createApp({
         },
         retornarIgual() {
             this.display = this.display
+        },
+        lidarDizima() {
+            let posAtual = String(this.display).indexOf(".")
+            if(posAtual != -1) {
+                console.log(String(this.display).slice(posAtual + 1, this.display.length))
+            }
         },
         lidarClear() {
             this.display = '0'

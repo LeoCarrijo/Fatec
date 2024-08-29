@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Aula 04 - V-MODEL e V-IF</title>
+</head>
+<body>
+    <div id="app">
+        <h1>V-MODEL</h1>
+        <label for="">Nome</label>
+        <input type="text" v-model="nome">
+        <br>
+        <br>
+        <label for="">Sobrenome: </label>
+        <input type="text" v-model="sobrenome">
+
+        <h1 v-if="!nome">Olá, Fulano</h1>
+        <h1 v-else-if="sobrenome">Olá, {{nome}}</h1>
+        <br>
+        <hr>
+        <br>
+        <button v-if="!aceso" @click="onOff()">Ligar</button>
+        <button v-else-if="aceso" @click="onOff()">Desligar</button>
+        <img v-if="!aceso" src="images/luzApagada.png" width="250px">
+        <img v-else-if="aceso" src="images/luzAcesa.png" width="250px">
+        <br>
+        <hr>
+        <br>
+        <label for="">"Aceso(a)" ou "Apagado(a)"</label>
+        <input type="text" v-model="apagadoInput">
+        <img v-if="apagadoInput == 'Aceso' || apagadoInput == 'Acesa'" src="images/on.png" width="250px">
+        <img v-else-if="apagadoInput == 'Apagado' || apagadoInput == 'Apagada'" src="images/off.png" width="250px">
+        <img v-else src="images/luzApagada.png" width="250px">
+    </div>
+</body>
+</html>
+
+<script src="index.js"></script>
