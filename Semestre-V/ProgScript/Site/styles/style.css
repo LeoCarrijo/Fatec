@@ -51,7 +51,8 @@ table {
 }
 
 .cabecalho {
-  background-color: rgb(173, 138, 138);
+  background-color: #495371;
+  color: whitesmoke;
   text-align: center;
   padding: 50px 0px;
   font-size: 1.3rem;
@@ -61,7 +62,7 @@ table {
 }
 
 .campo {
-  background-color: red;
+  background-color: #74959A;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,11 +74,12 @@ table {
   font-size: 1.3rem;
   border: 1px solid #000;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.527);
+  color: #F1E0AC;
 }
 .campo .input {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 .campo .input input {
   font-size: 1.1rem;
@@ -86,9 +88,10 @@ table {
   border-radius: 8px;
   border: 1px solid #000;
   transition: 0.15s;
+  padding: 2px;
 }
 .campo .input input:focus {
-  background-color: aquamarine;
+  background-color: rgba(215, 185, 213, 0.8235294118);
 }
 .campo p {
   font-size: 1rem;
@@ -109,15 +112,18 @@ table {
 .campo .botoes button {
   font-size: 1.1rem;
   border-radius: 8px;
-  border: 1px solid #000;
+  border: 2px solid #D7B9D5;
+  background-color: #F4CAE0;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.493);
 }
 .campo .botoes button:hover, .campo .botoes button:focus {
-  background-color: rgb(41, 41, 41);
-  color: whitesmoke;
+  background-color: #D7B9D5;
+  border: 1px solid #000;
+  border: 2px solid #F4CAE0;
 }
 .campo .botoes button:active {
-  background-color: whitesmoke;
+  background-color: #F4CAE0;
+  border: 2px solid #D7B9D5;
   color: rgb(41, 41, 41);
   transform: translate(1px, 1px);
 }
@@ -127,4 +133,5 @@ table {
   justify-content: center;
   align-items: center;
   height: 80vh;
+  background-color: rgba(116, 149, 154, 0.2862745098);
 }/*# sourceMappingURL=style.css.map */

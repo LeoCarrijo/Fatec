@@ -1,5 +1,5 @@
 .campo {
-    background-color: red;
+    background-color: $cor-secundaria;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,10 +10,11 @@
     font-size: 1.3rem;
     border: 1px solid #000;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.527);
+    color: $cor-terciaria;
     .input {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     input {
             font-size: 1.1rem;
             width: 300px;
@@ -21,8 +22,9 @@
             border-radius: 8px;
             border: 1px solid #000;
             transition: .15s;
+            padding: 2px;
             &:focus {
-                background-color: aquamarine;
+                background-color: $cor-quaternaria-ofuscada;
             }
         }
     }
@@ -44,14 +46,17 @@
         button {
             font-size: 1.1rem;
             border-radius: 8px;
-            border: 1px solid #000;
+            border: 2px solid $cor-quaternaria;
+            background-color: $cor-quintenaria;
             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.493);
             &:hover, &:focus {
-                background-color: rgb(41, 41, 41);
-                color: whitesmoke;
+                background-color: $cor-quaternaria;
+                border: 1px solid #000;
+                border: 2px solid $cor-quintenaria;
             }
             &:active {
-                background-color: whitesmoke;
+                background-color: $cor-quintenaria;
+                border: 2px solid $cor-quaternaria;
                 color: rgb(41, 41, 41);
                 transform: translate(1px, 1px);
             }
