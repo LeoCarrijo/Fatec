@@ -80,6 +80,7 @@ table {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  text-shadow: 1px 1px 1px black;
 }
 .campo .input input {
   font-size: 1.1rem;
