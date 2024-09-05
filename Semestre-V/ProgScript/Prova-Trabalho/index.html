@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Prova - Berleli</title>
+</head>
+<body>
+    <div id="app">
+        <div class="character">
+            <div class="life-bar">{{hero.life}}</div>
+            <div class="sprite">Desenho Personagem</div>
+            <h1>Guts</h1>
+            <div class="actions">
+                <button @click="">Atacar</button>
+                <button @click="">Defender</button>
+                <button @click="">Usar</button>
+                <button @click="">Fugir</button>
+            </div>
+        </div>
+        <div class="character">
+            <div class="life-bar">{{hero.life}}</div>
+            <div class="sprite">Desenho Personagem</div>
+            <h1>Griffith</h1>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="index.js" ></script>
