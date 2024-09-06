@@ -27,7 +27,7 @@ createApp({
             }
         },
         attack() {
-            
+            console.log(this.generateRng(10))
         },
         defend() {
 
@@ -37,6 +37,9 @@ createApp({
         },
         flee() {
 
+        },
+        generateRng(max) {
+            return (Math.floor(Math.random() * max))
         }
         // attack(isHero) {
 
