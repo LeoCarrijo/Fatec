@@ -37,28 +37,18 @@ createApp({
             }
         },
         attack(isHero) {
-            if(isHero) {
-                let dmg = this.generateRng(this.hero.maxDmg)
-                this.causeDamage(dmg, isHero)
-                console.log(`${dmg} de dano causado`)
-                console.log(`Vida de ${this.villan.name}: ${this.villan.life}`)
-            } else {
-                let dmg = this.generateRng(this.villan.maxDmg)
-                this.causeDamage(dmg, isHero)
-                console.log(`${dmg} de dano causado`)
-                console.log(`Vida de ${this.hero.name}: ${this.hero.life}`)
-            }
+            let character = isHero ? this.hero : this.villan
+            let foe = !isHero ? this.hero : this.villan
+            let dmg = this.generateRng(character.maxDmg)
+            this.causeDamage(dmg, isHero)
+            console.log(`${dmg} de dano causado`)
+            console.log(`Vida de ${foe.name}: ${foe.life}`)
         },
         defend(isHero) {
-            if(isHero) {
-                this.hero.defend = true
-                this.hero.defenseArmor = 2
-                console.log(`${this.hero.name} está defendendo com ${this.hero.defenseArmor} de armadura`)
-            } else {
-                this.villan.defend = true
-                this.villan.defenseArmor = 2
-                console.log(`${this.villan.name} está defendendo com ${this.villan.defenseArmor} de armadura`)
-            }
+            let character = isHero ? this.hero : this.villan
+            character.defend = true
+            character.defenseArmor = 2
+            console.log(`${character.name} está defendendo com ${character.defenseArmor} de armadura`)
         },
         use() {
 
@@ -75,45 +65,20 @@ createApp({
             }
         },
         causeDamage(dmg, isHero) {
-            if(isHero) {
-                if(!this.villan.defend) {
-                    this.villan.life -= dmg
-                    if(this.villan.life < 0) {
-                        this.villan.life = 0
-                    }
-                } else {
-                    this.villan.defenseArmor -= 1
-                    console.log(`${this.villan.defenseArmor} de armadura restante`)
-                    if(this.villan.defenseArmor == 0) {
-                        this.villan.defend = false
-                    }
+            let foe = !isHero ? this.hero : this.villan
+            if(!foe.defend) {
+                foe.life -= dmg
+                if(foe.life < 0) {
+                    foe.life = 0
                 }
             } else {
-                if (!this.hero.defend) {
-                    this.hero.life -= dmg
-                    if(this.hero.life < 0) {
-                        this.hero.life = 0
-                    }
-                } else {
-                    this.hero.defenseArmor -= 1
-                    if(this.hero.defenseArmor == 0) {
-                        this.hero.defend = false
-                    }
+                foe.defenseArmor -= 1
+                console.log(`${foe.defenseArmor} de armadura restante`)
+                if(foe.defenseArmor == 0) {
+                    foe.defend = false
                 }
             }
         }
-        // attack(isHero) {
-
-        // },
-        // defend(isHero) {
-            
-        // },
-        // use(isHero) {
-
-        // },
-        // flee() {
-
-        // },
         // villanAction() {
         //     const actions = ['attack', 'defend', 'usePotion', 'flee']
         //     const randomAction = actions[Math.floor(Math.random() * actions.length)]
