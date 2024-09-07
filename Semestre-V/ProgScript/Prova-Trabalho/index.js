@@ -53,7 +53,7 @@ createApp({
         generateRng(max) {
             return (Math.floor(Math.random() * max))
         },
-        causeDamage(life, dmg, isHero) {
+        causeDamage(dmg, isHero) {
             if(isHero) {
                 this.villan.life -= dmg
                 if(this.villan.life < 0) {
