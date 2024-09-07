@@ -6,9 +6,9 @@ createApp({
             hero: {
                 life: 100,
                 maxLife: 100,
-                rage: 100,
+                rage: 0,
                 maxRage: 100,
-                berserkMode: true,
+                berserkMode: false,
                 berserkDmgMult: 3,
                 minBerkserkDmg: 3,
                 name: 'Guts',
@@ -47,6 +47,7 @@ createApp({
                     this.flee()
                     break
             }
+            this.passRound()
         },
         attack(isHero) {
             let character = isHero ? this.hero : this.villan
@@ -88,6 +89,10 @@ createApp({
                 console.log(`${this.hero.name} tentou fugir mas não conseguiu...`)
                 this.causeDamage(this.villan.maxDmg * 1.5, false)
             }
+        },
+        stand(isHero) {
+            let character = isHero ? this.hero : this.villan
+            console.log(`${character.name} manteve posição`)
         },
         generateRng(max) {
             let value = (Math.floor(Math.random() * max))
@@ -143,11 +148,22 @@ createApp({
         },
         victory() {
             console.log(`${this.villan.name} Perdeu!\n${this.hero.name} Venceu!`)
+        },
+        passRound() {
+            this.villanAct()
+        },
+        villanAct() {
+            let actions = ['attack', 'defend', 'use', 'stand']
+            if(this.villan.life == this.villan.maxLife || this.villan.elfPowder == 0) {
+                actions.splice(actions.indexOf('use'), 1)
+            }
+            if(this.villan.defend) {
+                actions.splice(actions.indexOf('defend'), 1)
+                actions.splice(actions.indexOf('attack'), 1)
+                actions.push('stopDefending')
+            }
+            const randomAction = actions[Math.floor(Math.random() * actions.length)]
+            this[randomAction](false)
         }
-        // villanAction() {
-        //     const actions = ['attack', 'defend', 'usePotion', 'flee']
-        //     const randomAction = actions[Math.floor(Math.random() * actions.length)]
-        //     this[randomAction](false)
-        // }
     }
 }).mount('#app')
