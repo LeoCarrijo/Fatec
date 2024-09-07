@@ -13,18 +13,34 @@ html, body {
   text-align: center;
 }
 
+.rounds {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 1.5rem;
+}
+
 .character {
   background-color: whitesmoke;
   border: 2px solid #1d509f;
-  margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .actions {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
+}
+
+.stand-button {
+  grid-area: 3/1/4/3;
 }
 
 button {
@@ -45,9 +61,13 @@ button:active {
   transform: translateY(2px);
 }
 
+button:disabled {
+  background-color: gray;
+}
+
 .life-bar {
   height: 30px;
-  background-color: #9ce39e;
+  background-color: #51e056;
   color: #32450a;
   display: flex;
   align-items: center;

@@ -20,7 +20,9 @@ createApp({
                 maxDmg: 20,
                 defended: false,
                 defenseArmor: 2,
-                elfPowder: 3
+                elfPowder: 3,
+                log: '',
+                logAux: ''
             },
             villan: {
                 role: 'villan',
@@ -32,12 +34,15 @@ createApp({
                 maxDmg: 15,
                 defended: false,
                 defenseArmor: 2,
-                elfPowder: 3
+                elfPowder: 3,
+                log: '',
+                logAux: ''
             }
         }
     },
     methods: {
         handlerClick(opt) {
+            this.resetLogs()
             switch(opt) {
                 case 'attack':
                     this.attack(true)
@@ -53,6 +58,9 @@ createApp({
                     break
                 case 'flee':
                     this.flee()
+                    break
+                case 'stand':
+                    this.stand(true)
                     break
             }
             if(!this.gameover) {
@@ -72,41 +80,44 @@ createApp({
             }
             this.causeDamage(dmg, isHero)
             console.log(`${dmg} de dano causado`)
+            this.changeLog(isHero, `${dmg} de dano causado`)
             console.log(`Vida de ${foe.name}: ${foe.life}`)
+            this.changeLog(isHero, `Vida de ${foe.name}: ${foe.life}`, true)
             this.fixSizeOf(`${foe.role}-life-bar`)
         },
         defend(isHero) {
             let character = isHero ? this.hero : this.villan
             character.defend = true
             character.defenseArmor = 2
-            console.log(`${character.name} está defendendo com ${character.defenseArmor} de armadura`)
+            this.changeLog(isHero, `${character.name} está defendendo!`)
         },
         stopDefending(isHero) {
             let character = isHero ? this.hero : this.villan
             character.defend = false
             character.defenseArmor = 2
-            console.log(`${character.name} parou de defender!`)
+            this.changeLog(isHero, `${character.name} parou de defender!`)
         },
         use(isHero) {
             let character = isHero ? this.hero : this.villan
             if(character.elfPowder > 0) {
                 this.heal(isHero)
             } else {
-                console.log(`${character.name} não possui mais pó élfico!`)
+                this.changeLog(isHero, `${character.name} não possui mais pó élfico!`)
             }
         },
         flee() {
             if(this.generateRng(11) > 8) {
-                console.log(`${this.hero.name} Fugiu!`)
+                this.changeLog(true, `${this.hero.name} Fugiu!`)
                 this.endGame(false)
             } else {
-                console.log(`${this.hero.name} tentou fugir mas não conseguiu...`)
-                this.causeDamage(this.villan.maxDmg * 1.5, false)
+                this.changeLog(true, `${this.hero.name} tentou fugir mas não conseguiu...`)
+                this.causeDamage(Math.floor(this.villan.maxDmg * 1.5), false)
+                this.fixSizeOf(`${this.hero.role}-life-bar`)
             }
         },
         stand(isHero) {
             let character = isHero ? this.hero : this.villan
-            console.log(`${character.name} manteve posição`)
+            this.changeLog(isHero, `${character.name} manteve posição`)
         },
         generateRng(max) {
             let value = (Math.floor(Math.random() * max))
@@ -128,7 +139,7 @@ createApp({
                 }
             } else {
                 foe.defenseArmor -= 1
-                console.log(`${foe.defenseArmor} de armadura restante`)
+                this.changeLog(!isHero, `${foe.defenseArmor} de armadura restante`)
                 if(foe.defenseArmor == 0) {
                     foe.defend = false
                 }
@@ -156,7 +167,7 @@ createApp({
             this.hero.berserkMode = true
             let healAmmount = this.hero.maxLife / 2
             this.hero.life += (this.hero.life + healAmmount > this.hero.maxLife) ? (this.hero.maxLife - this.hero.life) : healAmmount 
-            console.log(`${this.hero.name} está enfurecido!`)
+            this.changeLog(true, `${this.hero.name} está enfurecido!`)
             this.fixSizeOf(`${this.hero.role}-life-bar`)
         },
         turnIntoFemto() {
@@ -171,7 +182,7 @@ createApp({
             let healAmmount = 30
             character.life += (character.life + healAmmount > character.maxLife) ? (character.maxLife - character.life) : healAmmount 
             character.elfPowder--
-            console.log(`${character.name} curado em ${healAmmount} de HP!`)
+            this.changeLog(isHero, `${character.name} curado em ${healAmmount} de HP!`)
             this.fixSizeOf(`${character.role}-life-bar`)
         },
         fixSizeOf(element, rage = false) {
@@ -205,9 +216,22 @@ createApp({
                     this.endGame(true)
                 }
             }
+            if(this.hero.life == 0) {
+                this.endGame(false)
+            }
             if(this.round % 10 == 0) {
                 this.giveElfPowder(true)
                 this.giveElfPowder(false)
+            }
+            if(this.hero.life != this.hero.maxLife) {
+                document.getElementById('use-button').disabled = false
+            } else {
+                document.getElementById('use-button').disabled = true
+            }
+            if(!this.hero.defend) {
+                document.getElementById('attack-button').disabled = false
+            } else {
+                document.getElementById('attack-button').disabled = true
             }
         },
         villanAct() {
@@ -222,6 +246,20 @@ createApp({
             }
             const randomAction = actions[Math.floor(Math.random() * actions.length)]
             this[randomAction](false)
+        },
+        changeLog(isHero, msg, aux = false) {
+            let character = isHero ? this.hero : this.villan
+            if(!aux) {
+                character.log = msg
+            } else {
+                character.logAux = msg
+            }
+        },
+        resetLogs() {
+            this.hero.log = ''
+            this.hero.logAux = ''
+            this.villan.log = ''
+            this.villan.logAux = ''
         },
         reset() {
             window.location.reload(true)
