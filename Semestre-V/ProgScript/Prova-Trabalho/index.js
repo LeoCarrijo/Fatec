@@ -5,17 +5,21 @@ createApp({
         return {
             hero: {
                 life: 100,
+                maxLife: 100,
                 name: 'Guts',
                 maxDmg: 10,
                 defended: false,
-                defenseArmor: 2
+                defenseArmor: 2,
+                elfPowder: 3
             },
             villan: {
                 life: 100,
+                maxLife: 100,
                 name: 'Griffith',
                 maxDmg: 10,
                 defended: false,
-                defenseArmor: 2
+                defenseArmor: 2,
+                elfPowder: 3
             }
         }
     },
@@ -29,7 +33,7 @@ createApp({
                     this.defend(true)
                     break
                 case 'use':
-                    this.use()
+                    this.use(true)
                     break
                 case 'flee':
                     this.flee()
@@ -50,8 +54,8 @@ createApp({
             character.defenseArmor = 2
             console.log(`${character.name} está defendendo com ${character.defenseArmor} de armadura`)
         },
-        use() {
-
+        use(isHero) {
+            this.heal(isHero)
         },
         flee() {
 
@@ -78,6 +82,12 @@ createApp({
                     foe.defend = false
                 }
             }
+        },
+        heal(isHero) {
+            let character = isHero ? this.hero : this.villan
+            let healAmmount = 30
+            character.life += healAmmount
+            console.log(`${character.name} curado em ${healAmmount} de HP!`)
         }
         // villanAction() {
         //     const actions = ['attack', 'defend', 'usePotion', 'flee']
