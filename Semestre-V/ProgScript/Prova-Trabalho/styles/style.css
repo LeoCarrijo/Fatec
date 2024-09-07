@@ -56,6 +56,17 @@ button:active {
   margin-bottom: 10px;
 }
 
+.rage-bar {
+  height: 30px;
+  background-color: #c9513b;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
 .sprite {
   height: 100px;
   margin-bottom: 20px;

@@ -6,6 +6,11 @@ createApp({
             hero: {
                 life: 100,
                 maxLife: 100,
+                rage: 100,
+                maxRage: 100,
+                berserkMode: true,
+                berserkDmgMult: 3,
+                minBerkserkDmg: 3,
                 name: 'Guts',
                 maxDmg: 10,
                 defended: false,
@@ -13,8 +18,8 @@ createApp({
                 elfPowder: 3
             },
             villan: {
-                life: 100,
-                maxLife: 100,
+                life: 200,
+                maxLife: 200,
                 name: 'Griffith',
                 maxDmg: 10,
                 defended: false,
@@ -27,7 +32,7 @@ createApp({
         handlerClick(opt) {
             switch(opt) {
                 case 'attack':
-                    this.attack(false)
+                    this.attack(true)
                     break
                 case 'defend':
                     this.defend(true)
@@ -47,6 +52,10 @@ createApp({
             let character = isHero ? this.hero : this.villan
             let foe = !isHero ? this.hero : this.villan
             let dmg = this.generateRng(character.maxDmg)
+            if(isHero && this.hero.berserkMode) {
+                dmg = dmg < this.hero.minBerkserkDmg ? this.hero.minBerkserkDmg : dmg
+                dmg *= this.hero.berserkDmgMult
+            }
             this.causeDamage(dmg, isHero)
             console.log(`${dmg} de dano causado`)
             console.log(`Vida de ${foe.name}: ${foe.life}`)
@@ -92,6 +101,9 @@ createApp({
             let foe = !isHero ? this.hero : this.villan
             if(!foe.defend) {
                 foe.life -= dmg
+                if(!isHero && !this.hero.berserkMode) {
+                    this.increaseRage(dmg)
+                }
                 if(foe.life < 0) {
                     foe.life = 0
                 }
@@ -102,6 +114,19 @@ createApp({
                     foe.defend = false
                 }
             }
+        },
+        increaseRage(rageAmmount) {
+            this.hero.rage += (this.hero.rage + rageAmmount > this.hero.maxRage) ? (this.hero.maxRage - this.hero.rage) : rageAmmount
+            if(this.hero.rage == this.hero.maxRage) {
+                this.hero.berserkMode = true
+
+                console.log(`${this.hero.name} está enfurecido!`)
+            }
+        },
+        turnIntoBerserk() {
+            this.hero.berserkMode = true
+            let healAmmount = this.hero.maxLife / 2
+            this.hero.life += (this.hero.life + healAmmount > this.hero.maxLife) ? (this.hero.maxLife - this.hero.life) : healAmmount 
         },
         heal(isHero) {
             let character = isHero ? this.hero : this.villan
