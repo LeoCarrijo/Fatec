@@ -32,6 +32,9 @@ createApp({
                 case 'defend':
                     this.defend(true)
                     break
+                case 'stopDefending':
+                    this.stopDefending(true)
+                    break
                 case 'use':
                     this.use(true)
                     break
@@ -54,12 +57,18 @@ createApp({
             character.defenseArmor = 2
             console.log(`${character.name} está defendendo com ${character.defenseArmor} de armadura`)
         },
+        stopDefending(isHero) {
+            let character = isHero ? this.hero : this.villan
+            character.defend = false
+            character.defenseArmor = 2
+            console.log(`${character.name} parou de defender!`)
+        },
         use(isHero) {
             let character = isHero ? this.hero : this.villan
             if(character.elfPowder > 0) {
                 this.heal(isHero)
             } else {
-
+                console.log(`${character.name} não possui mais pó élfico!`)
             }
         },
         flee() {

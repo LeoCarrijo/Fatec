@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="styles/style.css">
-    <title>Prova - Berleli</title>
+    <title>Prova - Berserk</title>
 </head>
 <body>
     <div id="app">
         <div class="character">
             <div class="life-bar">{{this.hero.life}}</div>
             <div class="sprite">Desenho Personagem</div>
-            <h1>Guts</h1>
+            <h1>{{this.hero.name}}</h1>
             <div class="actions">
                 <button v-show="!this.hero.defend" @click="handlerClick('attack')">Atacar</button>
-                <button v-show="!this.hero.defend" @click="handlerClick('defend')">Defender</button>
-                <button v-show="this.hero.life != this.hero.maxLife"@click="handlerClick('use')">Usar</button>
+                <button v-if="!this.hero.defend" @click="handlerClick('defend')">Defender</button>
+                <button v-else @click="handlerClick('stopDefending')">Para de Defender</button>
+                <button v-show="this.hero.life != this.hero.maxLife"@click="handlerClick('use')">Usar Pó Élfico</button>
                 <button @click="handlerClick('flee')">Fugir</button>
             </div>
         </div>
         <div class="character">
             <div class="life-bar">{{this.villan.life}}</div>
             <div class="sprite">Desenho Personagem</div>
-            <h1>Griffith</h1>
+            <h1>{{this.villan.name}}</h1>
         </div>
     </div>
 </body>
