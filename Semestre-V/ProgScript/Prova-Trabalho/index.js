@@ -8,6 +8,7 @@ createApp({
             endingMsg: '',
             endingTitle: '',
             hero: {
+                role: 'hero',
                 life: 100,
                 maxLife: 100,
                 rage: 0,
@@ -22,6 +23,7 @@ createApp({
                 elfPowder: 3
             },
             villan: {
+                role: 'villan',
                 life: 200,
                 maxLife: 200,
                 femto: false,
@@ -71,6 +73,7 @@ createApp({
             this.causeDamage(dmg, isHero)
             console.log(`${dmg} de dano causado`)
             console.log(`Vida de ${foe.name}: ${foe.life}`)
+            this.fixSizeOf(`${foe.role}-life-bar`)
         },
         defend(isHero) {
             let character = isHero ? this.hero : this.villan
@@ -136,6 +139,7 @@ createApp({
             if(this.hero.rage == this.hero.maxRage) {
                 this.turnIntoBerserk()
             }
+            this.fixSizeOf(`${this.hero.role}-rage-bar`, true)
         },
         giveElfPowder(toHero) {
             if(toHero) {
@@ -153,12 +157,14 @@ createApp({
             let healAmmount = this.hero.maxLife / 2
             this.hero.life += (this.hero.life + healAmmount > this.hero.maxLife) ? (this.hero.maxLife - this.hero.life) : healAmmount 
             console.log(`${this.hero.name} está enfurecido!`)
+            this.fixSizeOf(`${this.hero.role}-life-bar`)
         },
         turnIntoFemto() {
             this.villan.name = 'Femto'
             this.villan.femto = true
             this.villan.maxLife = 1000
             this.villan.life = this.villan.maxLife
+            this.fixSizeOf(`${this.villan.role}-life-bar`)
         },
         heal(isHero) {
             let character = isHero ? this.hero : this.villan
@@ -166,6 +172,15 @@ createApp({
             character.life += (character.life + healAmmount > character.maxLife) ? (character.maxLife - character.life) : healAmmount 
             character.elfPowder--
             console.log(`${character.name} curado em ${healAmmount} de HP!`)
+            this.fixSizeOf(`${character.role}-life-bar`)
+        },
+        fixSizeOf(element, rage = false) {
+            if(!rage) {
+                let character = element.indexOf(this.hero.role) == -1 ? this.villan : this.hero
+                document.getElementById(element).style.width = (`${character.life * 100 / character.maxLife}%`)
+            } else {
+                document.getElementById(element).style.width = (`${this.hero.rage * 100 / this.hero.maxRage}%`)
+            }
         },
         endGame(isHero) {
             isHero ? this.victory() : this.defeat()

@@ -58,8 +58,9 @@ button:active {
 
 .rage-bar {
   height: 30px;
+  width: 0;
   background-color: #c9513b;
-  color: whitesmoke;
+  color: black;
   display: flex;
   align-items: center;
   justify-content: center;

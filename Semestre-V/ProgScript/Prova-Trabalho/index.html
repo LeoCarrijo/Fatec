@@ -11,8 +11,8 @@
     <div id="app">
         <div class="game">
             <div class="character">
-                <div class="life-bar">{{hero.life}}</div>
-                <div class="rage-bar">{{hero.rage}}</div>
+                <div class="life-bar" id="hero-life-bar">{{hero.life}}</div>
+                <div v-show="hero.rage > 0" class="rage-bar" id="hero-rage-bar">{{hero.rage}}</div>
                 <div class="sprite">Desenho Personagem</div>
                 <h1>{{hero.name}}</h1>
                 <div class="actions">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="character">
-                <div class="life-bar">{{villan.life}}</div>
+                <div class="life-bar" id="villan-life-bar">{{villan.life}}</div>
                 <div class="sprite">Desenho Personagem</div>
                 <h1>{{villan.name}}</h1>
             </div>
