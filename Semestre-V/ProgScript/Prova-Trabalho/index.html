@@ -9,23 +9,30 @@
 </head>
 <body>
     <div id="app">
-        <div class="character">
-            <div class="life-bar">{{this.hero.life}}</div>
-            <div class="rage-bar">{{this.hero.rage}}</div>
-            <div class="sprite">Desenho Personagem</div>
-            <h1>{{this.hero.name}}</h1>
-            <div class="actions">
-                <button v-show="!this.hero.defend" @click="handlerClick('attack')">Atacar</button>
-                <button v-if="!this.hero.defend" @click="handlerClick('defend')">Defender</button>
-                <button v-else @click="handlerClick('stopDefending')">Para de Defender</button>
-                <button v-show="this.hero.life != this.hero.maxLife"@click="handlerClick('use')">Usar Pó Élfico</button>
-                <button @click="handlerClick('flee')">Fugir</button>
+        <div class="game">
+            <div class="character">
+                <div class="life-bar">{{hero.life}}</div>
+                <div class="rage-bar">{{hero.rage}}</div>
+                <div class="sprite">Desenho Personagem</div>
+                <h1>{{hero.name}}</h1>
+                <div class="actions">
+                    <button v-show="!hero.defend" @click="handlerClick('attack')">Atacar</button>
+                    <button v-if="!hero.defend" @click="handlerClick('defend')">Defender</button>
+                    <button v-else @click="handlerClick('stopDefending')">Para de Defender</button>
+                    <button v-show="hero.life != hero.maxLife"@click="handlerClick('use')">Usar Pó Élfico</button>
+                    <button @click="handlerClick('flee')">Fugir</button>
+                </div>
+            </div>
+            <div class="character">
+                <div class="life-bar">{{villan.life}}</div>
+                <div class="sprite">Desenho Personagem</div>
+                <h1>{{villan.name}}</h1>
             </div>
         </div>
-        <div class="character">
-            <div class="life-bar">{{this.villan.life}}</div>
-            <div class="sprite">Desenho Personagem</div>
-            <h1>{{this.villan.name}}</h1>
+        <div v-show="gameover" class="ending">
+            <h1>{{endingTitle}}</h1>
+            <h2>{{endingMsg}}</h2>
+            <button @click="reset()">Recomeçar</button>
         </div>
     </div>
 </body>

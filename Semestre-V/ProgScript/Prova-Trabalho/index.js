@@ -3,6 +3,10 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            round: 1,
+            gameover: false,
+            endingMsg: '',
+            endingTitle: '',
             hero: {
                 life: 100,
                 maxLife: 100,
@@ -47,7 +51,9 @@ createApp({
                     this.flee()
                     break
             }
-            this.passRound()
+            if(!this.gameover) {
+                this.passRound()
+            }
         },
         attack(isHero) {
             let character = isHero ? this.hero : this.villan
@@ -144,13 +150,19 @@ createApp({
             isHero ? this.victory() : this.defeat()
         },
         defeat() {
-            console.log(`${this.hero.name} Perdeu...\n${this.villan.name} Venceu...`)
+            this.endingTitle = `Derrota`
+            this.endingMsg = `${this.hero.name} Perdeu...${this.villan.name} Venceu...`
+            this.gameover = true
         },
         victory() {
-            console.log(`${this.villan.name} Perdeu!\n${this.hero.name} Venceu!`)
+            this.endingTitle = `Vitória`
+            this.endingMsg = `${this.villan.name} Perdeu! ${this.hero.name} Venceu!`
+            this.gameover = true
         },
         passRound() {
             this.villanAct()
+
+            this.round++
         },
         villanAct() {
             let actions = ['attack', 'defend', 'use', 'stand']
@@ -164,6 +176,9 @@ createApp({
             }
             const randomAction = actions[Math.floor(Math.random() * actions.length)]
             this[randomAction](false)
+        },
+        reset() {
+            window.location.reload(true)
         }
     }
 }).mount('#app')
