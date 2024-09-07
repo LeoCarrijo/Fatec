@@ -27,7 +27,7 @@ createApp({
         handlerClick(opt) {
             switch(opt) {
                 case 'attack':
-                    this.attack(true)
+                    this.attack(false)
                     break
                 case 'defend':
                     this.defend(true)
@@ -55,10 +55,21 @@ createApp({
             console.log(`${character.name} está defendendo com ${character.defenseArmor} de armadura`)
         },
         use(isHero) {
-            this.heal(isHero)
+            let character = isHero ? this.hero : this.villan
+            if(character.elfPowder > 0) {
+                this.heal(isHero)
+            } else {
+
+            }
         },
         flee() {
-
+            if(this.generateRng(11) > 8) {
+                console.log(`${this.hero.name} Fugiu!`)
+                this.endGame(false)
+            } else {
+                console.log(`${this.hero.name} tentou fugir mas não conseguiu...`)
+                this.causeDamage(this.villan.maxDmg * 1.5, false)
+            }
         },
         generateRng(max) {
             let value = (Math.floor(Math.random() * max))
@@ -87,7 +98,17 @@ createApp({
             let character = isHero ? this.hero : this.villan
             let healAmmount = 30
             character.life += (character.life + healAmmount > character.maxLife) ? (character.maxLife - character.life) : healAmmount 
+            character.elfPowder--
             console.log(`${character.name} curado em ${healAmmount} de HP!`)
+        },
+        endGame(isHero) {
+            isHero ? this.victory() : this.defeat()
+        },
+        defeat() {
+            console.log(`${this.hero.name} Perdeu...\n${this.villan.name} Venceu...`)
+        },
+        victory() {
+            console.log(`${this.villan.name} Perdeu!\n${this.hero.name} Venceu!`)
         }
         // villanAction() {
         //     const actions = ['attack', 'defend', 'usePotion', 'flee']
