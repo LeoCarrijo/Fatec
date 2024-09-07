@@ -16,7 +16,7 @@ createApp({
                 berserkDmgMult: 3,
                 minBerkserkDmg: 3,
                 name: 'Guts',
-                maxDmg: 10,
+                maxDmg: 20,
                 defended: false,
                 defenseArmor: 2,
                 elfPowder: 3
@@ -24,8 +24,10 @@ createApp({
             villan: {
                 life: 200,
                 maxLife: 200,
+                femto: false,
+                femtoDmgMult: 6,
                 name: 'Griffith',
-                maxDmg: 10,
+                maxDmg: 15,
                 defended: false,
                 defenseArmor: 2,
                 elfPowder: 3
@@ -62,6 +64,9 @@ createApp({
             if(isHero && this.hero.berserkMode) {
                 dmg = dmg < this.hero.minBerkserkDmg ? this.hero.minBerkserkDmg : dmg
                 dmg *= this.hero.berserkDmgMult
+            }
+            if(!isHero && this.villan.femto) {
+                dmg *= this.villan.femtoDmgMult
             }
             this.causeDamage(dmg, isHero)
             console.log(`${dmg} de dano causado`)
@@ -129,15 +134,31 @@ createApp({
         increaseRage(rageAmmount) {
             this.hero.rage += (this.hero.rage + rageAmmount > this.hero.maxRage) ? (this.hero.maxRage - this.hero.rage) : rageAmmount
             if(this.hero.rage == this.hero.maxRage) {
-                this.hero.berserkMode = true
-
-                console.log(`${this.hero.name} está enfurecido!`)
+                this.turnIntoBerserk()
+            }
+        },
+        giveElfPowder(toHero) {
+            if(toHero) {
+                if(this.hero.elfPowder < 5) {
+                    this.hero.elfPowder++
+                } 
+            } else {
+                if(this.villan.elfPowder < 5) {
+                    this.villan.elfPowder++
+                } 
             }
         },
         turnIntoBerserk() {
             this.hero.berserkMode = true
             let healAmmount = this.hero.maxLife / 2
             this.hero.life += (this.hero.life + healAmmount > this.hero.maxLife) ? (this.hero.maxLife - this.hero.life) : healAmmount 
+            console.log(`${this.hero.name} está enfurecido!`)
+        },
+        turnIntoFemto() {
+            this.villan.name = 'Femto'
+            this.villan.femto = true
+            this.villan.maxLife = 1000
+            this.villan.life = this.villan.maxLife
         },
         heal(isHero) {
             let character = isHero ? this.hero : this.villan
@@ -160,9 +181,19 @@ createApp({
             this.gameover = true
         },
         passRound() {
-            this.villanAct()
-
             this.round++
+            this.villanAct()
+            if(this.villan.life == 0) {
+                if(!this.villan.femto) {
+                    this.turnIntoFemto()
+                } else {
+                    this.endGame(true)
+                }
+            }
+            if(this.round % 10 == 0) {
+                this.giveElfPowder(true)
+                this.giveElfPowder(false)
+            }
         },
         villanAct() {
             let actions = ['attack', 'defend', 'use', 'stand']
