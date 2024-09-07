@@ -86,7 +86,7 @@ createApp({
         heal(isHero) {
             let character = isHero ? this.hero : this.villan
             let healAmmount = 30
-            character.life += healAmmount
+            character.life += (character.life + healAmmount > character.maxLife) ? (character.maxLife - character.life) : healAmmount 
             console.log(`${character.name} curado em ${healAmmount} de HP!`)
         }
         // villanAction() {

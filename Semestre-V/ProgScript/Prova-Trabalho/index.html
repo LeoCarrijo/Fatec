@@ -16,7 +16,7 @@
             <div class="actions">
                 <button @click="handlerClick('attack')">Atacar</button>
                 <button v-show="!this.hero.defend" @click="handlerClick('defend')">Defender</button>
-                <button v-show="this.hero.life == this.hero.maxLife"@click="handlerClick('use')">Usar</button>
+                <button v-show="this.hero.life = this.hero.maxLife"@click="handlerClick('use')">Usar</button>
                 <button @click="handlerClick('flee')">Fugir</button>
             </div>
         </div>
