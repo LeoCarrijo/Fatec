@@ -19,7 +19,7 @@ createApp({
                 name: 'Guts',
                 maxDmg: 20,
                 defended: false,
-                defenseArmor: 2,
+                defenseArmor: 0,
                 elfPowder: 3,
                 log: '',
                 logAux: ''
@@ -33,7 +33,7 @@ createApp({
                 name: 'Griffith',
                 maxDmg: 15,
                 defended: false,
-                defenseArmor: 2,
+                defenseArmor: 0,
                 elfPowder: 3,
                 log: '',
                 logAux: ''
@@ -94,7 +94,7 @@ createApp({
         stopDefending(isHero) {
             let character = isHero ? this.hero : this.villan
             character.defend = false
-            character.defenseArmor = 2
+            character.defenseArmor = 0
             this.changeLog(isHero, `${character.name} parou de defender!`)
         },
         use(isHero) {

@@ -65,6 +65,46 @@ button:disabled {
   background-color: gray;
 }
 
+.titulo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.defenseArmor {
+  display: flex;
+  background-image: url(static/img/shield.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  color: gold;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.2196078431);
+  text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.192);
+}
+
+.elfPowder {
+  display: flex;
+  background-image: url(static/img/elfPowder.png);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  color: #51e056;
+  -webkit-text-stroke-width: 0.75px;
+  -webkit-text-stroke-color: rgba(0, 0, 0, 0.2196078431);
+  text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.192);
+}
+
 .life-bar {
   height: 30px;
   background-color: #51e056;

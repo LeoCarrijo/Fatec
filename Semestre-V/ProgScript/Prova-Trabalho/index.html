@@ -24,7 +24,11 @@
                 </div>
                 <div v-show="hero.rage > 0" class="rage-bar" id="hero-rage-bar">{{hero.rage}}</div>
                 <div class="sprite">Desenho Personagem</div>
-                <h1>{{hero.name}}</h1>
+                <h1 class="titulo">
+                    <div class="elfPowder"><span>{{hero.elfPowder}}</span></div>
+                    {{hero.name}}
+                    <div class="defenseArmor"><span>{{hero.defenseArmor}}</span></div>
+                </h1>
                 <div class="actions">
                     <button id="attack-button" @click="handlerClick('attack')">Atacar</button>
                     <button v-if="!hero.defend" @click="handlerClick('defend')">Defender</button>
@@ -37,7 +41,11 @@
             <div class="character">
                 <div class="life-bar" id="villan-life-bar">{{villan.life}}</div>
                 <div class="sprite">Desenho Personagem</div>
-                <h1>{{villan.name}}</h1>
+                <h1 class="titulo">
+                    <div class="elfPowder"><span>{{villan.elfPowder}}</span></div>
+                    {{villan.name}}
+                    <div class="defenseArmor"><span>{{villan.defenseArmor}}</span></div>
+                </h1>
             </div>
         </div>
         <div class="villan-log">
