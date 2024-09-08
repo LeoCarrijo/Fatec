@@ -152,6 +152,13 @@ createApp({
             }
             this.fixSizeOf(`${this.hero.role}-rage-bar`, true)
         },
+        decreaseRage(rageAmmount) {
+            this.hero.rage -= rageAmmount
+            this.fixSizeOf(`${this.hero.role}-rage-bar`, true)
+            if(this.hero.rage < 0) {
+                this.hero.berserkMode = false
+            }
+        },
         giveElfPowder(toHero) {
             if(toHero) {
                 if(this.hero.elfPowder < 5) {
@@ -232,6 +239,9 @@ createApp({
                 document.getElementById('attack-button').disabled = false
             } else {
                 document.getElementById('attack-button').disabled = true
+            }
+            if(this.hero.berserkMode) {
+                this.decreaseRage(10)
             }
         },
         villanAct() {
