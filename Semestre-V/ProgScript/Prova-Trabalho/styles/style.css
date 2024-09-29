@@ -41,7 +41,6 @@ html, body {
   gap: 20px;
   height: 96vh;
   width: 100%;
-  max-width: 60%;
 }
 
 .actions {
@@ -140,10 +139,23 @@ button:disabled {
 }
 
 .sprite {
-  height: 100px;
   margin-bottom: 20px;
   background-color: #c1c1c1;
   border-radius: 5px;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  width: 384px;
+  height: 384px;
+}
+
+#sprite-guts {
+  background-image: url(static/img/sprites/guts-idle-128x3.png);
+}
+
+#sprite-griffith {
+  background-image: url(static/img/sprites/griffith-idle-128x3.png);
 }
 
 .ending {

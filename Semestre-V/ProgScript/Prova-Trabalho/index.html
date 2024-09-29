@@ -23,7 +23,7 @@
                     {{hero.life}}
                 </div>
                 <div v-show="hero.rage > 0" class="rage-bar" id="hero-rage-bar">{{hero.rage}}</div>
-                <div class="sprite">Desenho Personagem</div>
+                <div id="sprite-guts" class="sprite guts"></div>
                 <h1 class="titulo">
                     <div class="elfPowder"><span>{{hero.elfPowder}}</span></div>
                     {{hero.name}}
@@ -40,7 +40,7 @@
             </div>
             <div class="character">
                 <div class="life-bar" id="villan-life-bar">{{villan.life}}</div>
-                <div class="sprite">Desenho Personagem</div>
+                <div id="sprite-griffith" class="sprite griffith"></div>
                 <h1 class="titulo">
                     <div class="elfPowder"><span>{{villan.elfPowder}}</span></div>
                     {{villan.name}}

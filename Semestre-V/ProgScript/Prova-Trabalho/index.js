@@ -7,6 +7,7 @@ createApp({
             gameover: false,
             endingMsg: '',
             endingTitle: '',
+            heroAttacking: false,
             hero: {
                 role: 'hero',
                 life: 100,
@@ -71,6 +72,11 @@ createApp({
             let character = isHero ? this.hero : this.villan
             let foe = !isHero ? this.hero : this.villan
             let dmg = this.generateRng(character.maxDmg)
+            if(isHero) {
+                this.changeToAttackSprite(true)
+            } else {
+                this.changeToAttackSprite(false)
+            }
             if(isHero && this.hero.berserkMode) {
                 dmg = dmg < this.hero.minBerkserkDmg ? this.hero.minBerkserkDmg : dmg
                 dmg *= this.hero.berserkDmgMult
@@ -183,6 +189,7 @@ createApp({
             this.villan.maxLife = 1000
             this.villan.life = this.villan.maxLife
             this.fixSizeOf(`${this.villan.role}-life-bar`)
+            document.getElementById('sprite-griffith').id = 'sprite-femto'
         },
         heal(isHero) {
             let character = isHero ? this.hero : this.villan
@@ -199,6 +206,21 @@ createApp({
             } else {
                 document.getElementById(element).style.width = (`${this.hero.rage * 100 / this.hero.maxRage}%`)
             }
+        },
+        changeToAttackSprite(isHero) {
+            let path = 'styles/static/img/sprites/'
+            let character = isHero ? this.hero.name : this.villan.name
+            let element = document.getElementById(`sprite-${character.toLowerCase()}`)
+            element.style.backgroundImage = `url('${path}${character.toLowerCase()}-ataque-128x3.gif?${Math.random()}')`
+            setTimeout(() => {
+                this.setIdleSprite(isHero)
+            }, 1000)
+        },
+        setIdleSprite(isHero) {
+            let path = 'styles/static/img/sprites/'
+            let character = isHero ? this.hero.name : this.villan.name
+            let element = document.getElementById(`sprite-${character.toLowerCase()}`)
+            element.style.backgroundImage = `url('${path}${character.toLowerCase()}-idle-128x3.png?${Math.random()}')`
         },
         endGame(isHero) {
             isHero ? this.victory() : this.defeat()
