@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <button @click="callAPI()">Chamar API</button>
+    <div>
+        <input type="text" name="pokemonInput" id="pokemonInput" placeholder="Procure seu Pokémon ☆*: .｡. o(≧▽≦)o .｡.:*☆">
+        <button @click="searchPokemon()">Procurar</button>
+    </div>
+    <div class="pokemon-container">
+        <ul>
+            <li v-for="pokemon in pokemons" :key="pokemon.id">
+                <div class="pokemon-card">
+                    <p>{{pokemon.name}}</p>
+                    <div class="pokemon-img">
+                        <img :src="pokemon.sprites.other.showdown.front_default">
+                    </div>
+                    <h3 v-if="pokemon.types.length === 1">{{(pokemon.types[0].type.name).toUpperCase()}}</h3>
+                    <h3 v-else-if="pokemon.types.length > 1">{{(pokemon.types[0].type.name).toUpperCase() }}  {{ (pokemon.types[1].type.name).toUpperCase()}} </h3>
+                    <h3>Weight: {{(pokemon.weight * 0.45359237).toFixed(0)}} Kg</h3>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="loading">
+        <h1 v-if="loading">Loading...</h1>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="index.js"></script>
