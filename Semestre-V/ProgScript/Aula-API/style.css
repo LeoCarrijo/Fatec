@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'pokemon-font';
+    src: url(static/Pokemon\ Hollow.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
-    font-family: "Comic Sans MS", cursive;
+    font-family: "pokemon-font", cursive;
     background-color: #f5f5f5;
     margin: 0;
 }
