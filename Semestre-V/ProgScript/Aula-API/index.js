@@ -39,7 +39,7 @@ createApp({
                 const data = await response.json();
                 return {
                     id: data.id,
-                    name: data.name,
+                    name: this.capitalize(data.name),
                     weight: data.weight,
                     types: data.types,
                     sprites: data.sprites,
@@ -81,6 +81,10 @@ createApp({
                 flying: 'flying',
                 ghost: 'ghost'
             }
+            return classTypeMap[type] || '';
+        },
+        capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
         }
     }
 }).mount("#app");

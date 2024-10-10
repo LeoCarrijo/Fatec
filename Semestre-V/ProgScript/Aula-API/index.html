@@ -15,9 +15,9 @@
     </div>
     <div class="pokemon-container">
         <ul>
-            <li v-for="pokemon in pokemons" :key="pokemon.id">
+            <li v-for="pokemon in pokemons" :key="pokemon.id" :class="getTypeClass(pokemon.types[0].type.name)">
                 <div class="pokemon-card">
-                    <p>{{pokemon.name}}</p>
+                    <h1>{{pokemon.name}}</h1>
                     <div class="pokemon-img">
                         <img :src="pokemon.sprites.other.showdown.front_default">
                     </div>
