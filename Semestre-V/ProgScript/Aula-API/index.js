@@ -7,6 +7,7 @@ createApp({
             loading: true,
             searchText: '',
             nextPage: 1,
+            filtered: false
         }
     },
     created() {
@@ -52,6 +53,7 @@ createApp({
         searchPokemon() {
             const pokemonInput = document.getElementById("pokemonInput").value
             console.log(pokemonInput)
+            this.filtered = true
         },
         handleScroll() {
             const bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight

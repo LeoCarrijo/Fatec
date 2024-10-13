@@ -13,7 +13,7 @@
         <input type="text" name="pokemonInput" id="pokemonInput" placeholder="Procure seu Pokémon ☆*: .｡. o(≧▽≦)o .｡.:*☆">
         <button @click="searchPokemon()">Procurar</button>
     </div>
-    <div class="pokemon-container">
+    <div class="pokemon-container" v-if="filtered == false">
         <ul>
             <li v-for="pokemon in pokemons" :key="pokemon.id" :class="getTypeClass(pokemon.types[0].type.name)">
                 <div class="pokemon-card">
@@ -27,6 +27,9 @@
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="pokemon-container" v-else>
+        <p>Filtrado</p>
     </div>
     <div class="loading">
         <h1 v-if="loading">Loading...</h1>
