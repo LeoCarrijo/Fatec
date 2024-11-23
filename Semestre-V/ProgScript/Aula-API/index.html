@@ -10,12 +10,11 @@
 <div id="app">
     <button @click="callAPI()">Chamar API</button>
     <div>
-        <input type="text" name="pokemonInput" id="pokemonInput" placeholder="Procure seu Pokémon ☆*: .｡. o(≧▽≦)o .｡.:*☆">
-        <button @click="searchPokemon()">Procurar</button>
+        <input type="text" v-model="searchText" name="pokemonInput" id="pokemonInput" placeholder="Procure seu Pokémon ☆*: .｡. o(≧▽≦)o .｡.:*☆">
     </div>
-    <div class="pokemon-container" v-if="filtered == false">
+    <div class="pokemon-container">
         <ul>
-            <li v-for="pokemon in pokemons" :key="pokemon.id" :class="getTypeClass(pokemon.types[0].type.name)">
+            <li v-for="pokemon in filteredPokemons" :key="pokemon.id" :class="getTypeClass(pokemon.types[0].type.name)">
                 <div class="pokemon-card">
                     <h1>{{pokemon.name}}</h1>
                     <div class="pokemon-img">
@@ -27,9 +26,6 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="pokemon-container" v-else>
-        <p>Filtrado</p>
     </div>
     <div class="loading">
         <h1 v-if="loading">Loading...</h1>

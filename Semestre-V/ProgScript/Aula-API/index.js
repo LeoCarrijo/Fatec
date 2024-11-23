@@ -6,8 +6,7 @@ createApp({
             pokemons: [],
             loading: true,
             searchText: '',
-            nextPage: 1,
-            filtered: false
+            nextPage: 1
         }
     },
     created() {
@@ -50,11 +49,6 @@ createApp({
                 console.error(e);
             }
         },
-        searchPokemon() {
-            const pokemonInput = document.getElementById("pokemonInput").value
-            console.log(pokemonInput)
-            this.filtered = true
-        },
         handleScroll() {
             const bottomOfWindow = document.documentElement.scrollTop + window.innerHeight === document.documentElement.offsetHeight
             if(bottomOfWindow && !this.loading) {
@@ -87,6 +81,13 @@ createApp({
         },
         capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    },
+    computed: {
+        filteredPokemons() {
+            return this.pokemons.filter(pokemon => 
+                pokemon.name.toLowerCase().includes(this.searchText.toLowerCase())
+            );
         }
     }
 }).mount("#app");
