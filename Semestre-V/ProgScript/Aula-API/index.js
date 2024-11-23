@@ -56,28 +56,14 @@ createApp({
                 this.callAPI()
             }
         },
-        getTypeClass(type) {
-            const classTypeMap = {
-                fire: 'fire',
-                grass: 'grass',
-                dragon: 'dragon',
-                ice: 'ice',
-                fighting: 'fighting',
-                ground: 'ground',
-                bug: 'bug',
-                normal: 'normal',
-                poison: 'poison',
-                electric: 'electric',
-                rock: 'rock',
-                steel: 'steel',
-                psychic: 'psychic',
-                fairy: 'fairy',
-                dark: 'dark',
-                water: 'water',
-                flying: 'flying',
-                ghost: 'ghost'
+        getTypeClass(pokemon) {
+            const types = pokemon.types.map(type => type.type.name);
+            
+            if (types.length === 1) {
+                return `single-type ${types[0]}`;
+            } else {
+                return `dual-type ${types[0]} type2-${types[1]}`;
             }
-            return classTypeMap[type] || '';
         },
         capitalize(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
